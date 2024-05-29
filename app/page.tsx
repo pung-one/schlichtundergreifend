@@ -1,3 +1,10 @@
+import { Hero } from "@/components/Hero";
+import { PageContainer } from "@/components/PageContainer";
+
 export default function Home() {
-  return <h1>Schlicht & Ergreifend</h1>;
+  return (
+    <PageContainer>
+      <Hero />
+    </PageContainer>
+  );
 }
