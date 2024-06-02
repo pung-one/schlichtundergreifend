@@ -1,6 +1,17 @@
 import { GlobalStyles } from "@/globalStyles/global_styles";
 import StyledComponentsRegistry from "@/lib/registry";
 import type { Metadata } from "next";
+import ReactDOM from "react-dom";
+
+ReactDOM.preload("/fonts/Roboto-Thin.ttf", {
+  as: "font",
+  crossOrigin: "",
+});
+
+ReactDOM.preload("/fonts/Cambo-Regular.ttf", {
+  as: "font",
+  crossOrigin: "",
+});
 
 export const metadata: Metadata = {
   title: "Schlicht & Ergreifend",
