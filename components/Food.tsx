@@ -8,36 +8,29 @@ import ingr3 from "@/public/images/materials/ingr3.png";
 import ingr4 from "@/public/images/materials/ingr4.png";
 import ingr5 from "@/public/images/materials/ingr5.png";
 import ingr6 from "@/public/images/materials/ingr6.png";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { useImageCountLoop } from "@/utils/imageCountLoop";
 
 export function Food() {
-  const [imageCount, setImageCount] = useState(0);
-
   const headlineRef = useRef(null);
+  const imageRef = useRef(null);
 
-  const isInView = useInView(headlineRef, {
+  const headlineIsInView = useInView(headlineRef, {
     once: true,
     margin: "0% 0% -30%",
   });
 
+  const imageIsInView = useInView(imageRef, {
+    once: true,
+    margin: "0% 0% -60%",
+  });
+
   const images = [ingr1, ingr2, ingr3, ingr4, ingr5, ingr6];
 
-  useEffect(() => {
-    function imageLoop() {
-      imageCount < 5 ? setImageCount(imageCount + 1) : setImageCount(0);
-    }
+  const imageCount = useImageCountLoop(images, 5000);
 
-    const timeout = setTimeout(imageLoop, 5000);
-
-    return () => clearTimeout(timeout);
-  }, [imageCount]);
+  console.log("render");
 
   return (
     <FoodContainer>
@@ -45,12 +38,12 @@ export function Food() {
         <Headline
           ref={headlineRef}
           style={{
-            transform: isInView ? "none" : "translateY(-50px)",
-            opacity: isInView ? 1 : 0,
+            transform: headlineIsInView ? "none" : "translateY(-50px)",
+            opacity: headlineIsInView ? 1 : 0,
             transition: "all 0.9s ease 0.2s",
           }}
         >
-          Basis
+          Essenz
         </Headline>
 
         <Text>
@@ -61,20 +54,27 @@ export function Food() {
 
       <ImageSection>
         <AnimatePresence mode="wait">
-          <motion.div
+          <ImageContainer
+            ref={imageRef}
             key={imageCount}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5 }}
-            style={{ height: "100%" }}
+            style={{
+              overflow: "hidden",
+            }}
           >
             <StyledImage
               priority
+              style={{
+                transform: imageIsInView ? "scale(1)" : "scale(1.1)",
+                transition: "transform 0.3 ease-out",
+              }}
               src={images[imageCount]}
               alt="Esstisch im Garten im Frühling"
             />
-          </motion.div>
+          </ImageContainer>
         </AnimatePresence>
       </ImageSection>
     </FoodContainer>
@@ -92,15 +92,21 @@ const FoodContainer = styled.article`
 const ImageSection = styled.section`
   flex: 1;
   max-width: 50%;
+  overflow: hidden;
   @media only screen and (max-width: 950px) {
     max-width: 100%;
     max-height: 50%;
   }
 `;
 
+const ImageContainer = styled(motion.div)`
+  height: 100%;
+`;
+
 const StyledImage = styled(Image)`
   height: 100%;
   max-width: 100%;
+  transition: all 0.9s ease-out;
   object-fit: cover;
 `;
 

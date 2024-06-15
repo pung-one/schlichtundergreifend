@@ -2,89 +2,95 @@
 
 import styled from "styled-components";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import logoUp from "@/public/logo/logo.png";
+import logoDown from "@/public/logo/logo_white.png";
 import heroImage from "@/public/images/hero/messy-table1.png";
+import { useRef } from "react";
 
 export function Hero() {
   const { scrollY } = useScroll();
 
-  const y = useTransform(scrollY, [0, 1000], [0, 500]);
+  const blackLogoPosition = useTransform(scrollY, [0, 250], ["55%", "0%"]);
+  const blackLogoSize = useTransform(
+    scrollY,
+    [0, 250, 350],
+    ["20vh", "20vh", "10vh"]
+  );
+
+  const whiteLogoPosition = useTransform(scrollY, [0, 250], ["-45%", "-100%"]);
+
+  const imagePosition = useTransform(scrollY, [0, 250], [0, 250]);
 
   return (
-    <HeroSection>
-      <Headline>Schlicht & Ergreifend</Headline>
+    <>
+      <LogoSection style={{ height: blackLogoSize }}>
+        <BlackLogo
+          style={{ y: blackLogoPosition }}
+          initial={{ y: "100%" }}
+          animate={{ y: "55%" }}
+          transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
+          src={logoUp}
+          alt="Schlicht und Ergreifend Logo"
+        />
+      </LogoSection>
 
-      {/* <Headline2>Fine Dining</Headline2> */}
+      <ImageContainer>
+        <WhiteLogo
+          style={{ y: whiteLogoPosition }}
+          initial={{ y: "-100%" }}
+          animate={{ y: "-45%" }}
+          transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
+          src={logoDown}
+          alt="Schlicht und Ergreifend Logo"
+        />
 
-      <motion.div
-        style={{
-          overflow: "hidden",
-          y: y,
-        }}
-      >
         <StyledImage
+          style={{ y: imagePosition }}
           priority
           src={heroImage}
           alt="Esstisch im Garten im Frühling"
         />
-      </motion.div>
-    </HeroSection>
+      </ImageContainer>
+    </>
   );
 }
 
-const HeroSection = styled.header`
+const LogoSection = styled(motion.header)`
+  z-index: 3;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+`;
+
+const BlackLogo = styled(motion(Image))`
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+  object-fit: fill;
+  object-position: center;
+`;
+
+const WhiteLogo = styled(motion(Image))`
+  z-index: 2;
+  position: absolute;
+  height: 20vh;
+  width: 100%;
+  padding: 0 10px;
+  object-fit: fill;
+  object-position: center;
+`;
+
+const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
-  height: 100dvh;
+  width: 100%;
 `;
 
-const Headline = styled.h1`
-  position: absolute;
-  font-family: "RobotoThin";
-  z-index: 2;
-  color: white;
-  cursor: default;
-  font-size: 8vw;
-  bottom: 30px;
-  right: 30px;
-  /* &::before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: 95%;
-    height: 50%;
-    left: 2.5%;
-    top: 25%;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 0px 35px 25px white;
-  } */
-`;
-
-const Headline2 = styled.h1`
-  position: absolute;
-  font-family: "RobotoThin";
-  z-index: 2;
-  cursor: default;
-  font-size: 7vw;
-  color: white;
-  bottom: 30px;
-  right: 30px;
-  /* &::before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    width: 90%;
-    height: 20%;
-    left: 5%;
-    top: 40%;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0px 0px 30px 25px white;
-  } */
-`;
-
-const StyledImage = styled(Image)`
-  height: calc(100dvh + 50px);
-  width: 100vw;
+const StyledImage = styled(motion(Image))`
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 `;

@@ -9,54 +9,17 @@ import together4 from "@/public/images/together/together4.png";
 import together5 from "@/public/images/together/together5.png";
 import together6 from "@/public/images/together/together6.png";
 import together7 from "@/public/images/together/together7.png";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useImageCountLoop } from "@/utils/imageCountLoop";
 
-export function Together() {
+export function NextDates() {
   const headlineRef = useRef(null);
 
   const isInView = useInView(headlineRef, { once: true });
 
-  const images = [
-    together1,
-    together2,
-    together3,
-    together4,
-    together5,
-    together6,
-    together7,
-  ];
-
-  const imageCount = useImageCountLoop(images, 3000);
-
   return (
     <TogetherContainer>
-      <ImageSection>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={imageCount}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            style={{ height: "100%" }}
-          >
-            <StyledImage
-              priority
-              src={images[imageCount]}
-              alt="Esstisch im Garten im Frühling"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </ImageSection>
-
       <TextSection>
         <Headline
           ref={headlineRef}
@@ -66,14 +29,10 @@ export function Together() {
             transition: "all 0.9s ease 0.2s",
           }}
         >
-          Zusammen
+          Nächste Termine
         </Headline>
 
-        <Text>
-          Ein gutes Essen ist mehr als ein leckeres Gericht auf einem Teller
-          oder die Summe seiner Teile. In Erinnerung bleibt es durch gute
-          Gesellschaft.
-        </Text>
+        <Text>06. Juli 2024</Text>
       </TextSection>
     </TogetherContainer>
   );
@@ -87,33 +46,13 @@ const TogetherContainer = styled.article`
   }
 `;
 
-const ImageSection = styled.section`
-  flex: 1;
-  max-width: 50%;
-  @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
-  }
-`;
-
-const StyledImage = styled(Image)`
-  height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-`;
-
 const TextSection = styled.section`
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
   padding: 0 20px;
-  @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
-  }
 `;
 
 const Headline = styled(motion.h2)`

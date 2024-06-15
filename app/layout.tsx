@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { GlobalStyles } from "@/globalStyles/global_styles";
 import StyledComponentsRegistry from "@/lib/registry";
 import type { Metadata } from "next";
