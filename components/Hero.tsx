@@ -11,14 +11,12 @@ import { useRef } from "react";
 export function Hero() {
   const { scrollY } = useScroll();
 
-  const blackLogoPosition = useTransform(scrollY, [0, 250], ["55%", "0%"]);
+  const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
   const blackLogoSize = useTransform(
     scrollY,
     [0, 250, 350],
     ["20vh", "20vh", "10vh"]
   );
-
-  const whiteLogoPosition = useTransform(scrollY, [0, 250], ["-45%", "-100%"]);
 
   const imagePosition = useTransform(scrollY, [0, 250], [0, 250]);
 
@@ -37,7 +35,6 @@ export function Hero() {
 
       <ImageContainer>
         <WhiteLogo
-          style={{ y: whiteLogoPosition }}
           initial={{ y: "-100%" }}
           animate={{ y: "-45%" }}
           transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
@@ -62,12 +59,13 @@ const LogoSection = styled(motion.header)`
   top: 0;
   overflow: hidden;
   width: 100%;
+  background: white;
 `;
 
 const BlackLogo = styled(motion(Image))`
   height: 100%;
   width: 100%;
-  padding: 0 10px;
+  padding: 10px;
   object-fit: fill;
   object-position: center;
 `;
@@ -77,7 +75,7 @@ const WhiteLogo = styled(motion(Image))`
   position: absolute;
   height: 20vh;
   width: 100%;
-  padding: 0 10px;
+  padding: 10px;
   object-fit: fill;
   object-position: center;
 `;
