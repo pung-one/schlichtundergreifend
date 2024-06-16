@@ -66,7 +66,7 @@ const BlackLogo = styled(motion(Image))`
   height: 100%;
   width: 100%;
   padding: 10px;
-  object-fit: fill;
+  object-fit: contain;
   object-position: center;
 `;
 
@@ -76,7 +76,7 @@ const WhiteLogo = styled(motion(Image))`
   height: 20vh;
   width: 100%;
   padding: 10px;
-  object-fit: fill;
+  object-fit: contain;
   object-position: center;
 `;
 
@@ -84,6 +84,7 @@ const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
+  height: 80vh;
 `;
 
 const StyledImage = styled(motion(Image))`
