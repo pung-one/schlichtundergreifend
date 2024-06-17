@@ -19,7 +19,7 @@ export function NextDates() {
   const isInView = useInView(headlineRef, { once: true });
 
   return (
-    <TogetherContainer>
+    <NextDatesContainer>
       <TextSection>
         <Headline
           ref={headlineRef}
@@ -34,30 +34,22 @@ export function NextDates() {
 
         <Text>06. Juli 2024</Text>
       </TextSection>
-    </TogetherContainer>
+    </NextDatesContainer>
   );
 }
 
-const TogetherContainer = styled.article`
-  display: flex;
-  height: 100dvh;
-  @media only screen and (max-width: 950px) {
-    flex-direction: column-reverse;
-  }
+const NextDatesContainer = styled.article`
+  height: 90dvh;
 `;
 
 const TextSection = styled.section`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+  width: 100%;
+  padding-top: 30dvh;
+  text-align: center;
 `;
 
 const Headline = styled(motion.h2)`
-  font-family: "RobotoThin";
-  width: fit-content;
+  font-family: "Melodrama";
   margin: 0 0 3vh 0;
   font-size: 7vw;
   @media only screen and (max-width: 950px) {
@@ -68,10 +60,8 @@ const Headline = styled(motion.h2)`
 const Text = styled.p`
   line-height: 40px;
   text-align: center;
-  max-width: 70%;
   @media only screen and (max-width: 950px) {
     font-size: 16px;
-    max-width: 100%;
     padding: 0 10px;
     line-height: 30px;
   }

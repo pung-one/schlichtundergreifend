@@ -2,35 +2,48 @@
 
 import styled from "styled-components";
 import Image from "next/image";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import logoUp from "@/public/logo/logo.png";
 import logoDown from "@/public/logo/logo_white.png";
 import heroImage from "@/public/images/hero/messy-table1.png";
-import { useRef } from "react";
 
 export function Hero() {
   const { scrollY } = useScroll();
 
   const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
-  const blackLogoSize = useTransform(
+  const blackLogoLeft = useTransform(
     scrollY,
     [0, 250, 350],
+    ["50%", "50%", "0%"]
+  );
+  const blackLogoX = useTransform(
+    scrollY,
+    [0, 250, 350],
+    ["-50%", "-50%", "0%"]
+  );
+  const blackLogoSize = useTransform(
+    scrollY,
+    [0, 250, 450],
     ["20vh", "20vh", "10vh"]
   );
 
-  const imagePosition = useTransform(scrollY, [0, 250], [0, 250]);
+  const imagePosition = useTransform(scrollY, [0, 350], [0, 350]);
+
+  const borderWidth = useTransform(scrollY, [250, 450], ["0%", "100%"]);
 
   return (
     <>
       <LogoSection style={{ height: blackLogoSize }}>
-        <BlackLogo
-          style={{ y: blackLogoPosition }}
+        <BlackLogoContainer
+          style={{ y: blackLogoPosition, left: blackLogoLeft, x: blackLogoX }}
           initial={{ y: "100%" }}
           animate={{ y: "55%" }}
           transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
-          src={logoUp}
-          alt="Schlicht und Ergreifend Logo"
-        />
+        >
+          <BlackLogo src={logoUp} alt="Schlicht und Ergreifend Logo" />
+        </BlackLogoContainer>
+
+        <BorderBottom style={{ width: borderWidth }} />
       </LogoSection>
 
       <ImageContainer>
@@ -62,12 +75,27 @@ const LogoSection = styled(motion.header)`
   background: white;
 `;
 
-const BlackLogo = styled(motion(Image))`
+const BlackLogoContainer = styled(motion.div)`
+  position: absolute;
   height: 100%;
-  width: 100%;
+  width: fit-content;
+`;
+
+const BlackLogo = styled(Image)`
+  height: 100%;
+  width: fit-content;
   padding: 10px;
   object-fit: contain;
   object-position: center;
+`;
+
+const BorderBottom = styled(motion.div)`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  background: black;
 `;
 
 const WhiteLogo = styled(motion(Image))`
@@ -84,7 +112,7 @@ const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 80vh;
+  height: 120vh;
 `;
 
 const StyledImage = styled(motion(Image))`

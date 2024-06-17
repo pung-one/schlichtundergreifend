@@ -81,7 +81,7 @@ export function Together() {
 
 const TogetherContainer = styled.article`
   display: flex;
-  height: 100dvh;
+  height: 90dvh;
   @media only screen and (max-width: 950px) {
     flex-direction: column-reverse;
   }
@@ -90,6 +90,7 @@ const TogetherContainer = styled.article`
 const ImageSection = styled.section`
   flex: 1;
   max-width: 50%;
+  padding: 4vw;
   @media only screen and (max-width: 950px) {
     max-width: 100%;
     max-height: 50%;
@@ -117,7 +118,8 @@ const TextSection = styled.section`
 `;
 
 const Headline = styled(motion.h2)`
-  font-family: "RobotoThin";
+  font-family: "Melodrama";
+  font-weight: 100;
   width: fit-content;
   margin: 0 0 3vh 0;
   font-size: 7vw;
