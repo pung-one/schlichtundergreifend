@@ -1,49 +1,64 @@
 "use client";
 import styled from "styled-components";
 import Link from "next/link";
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
+import { Menu } from "./Menu";
+import { Header } from "./Header";
+
+export const MenuContext = createContext<{
+  menuOpen: boolean;
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}>({
+  menuOpen: false,
+  setMenuOpen: () => {},
+});
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "initial";
+  }, [menuOpen]);
+
+  console.log(menuOpen);
   return (
     <PageContainer>
-      <Header>
-        <Headline>Schlicht & Ergreifend</Headline>
-      </Header>
+      <MenuContext.Provider
+        value={{ menuOpen: menuOpen, setMenuOpen: setMenuOpen }}
+      >
+        <Header />
 
-      <Content>{children}</Content>
+        <Menu />
 
+        <Content $menuOpen={menuOpen}>{children}</Content>
+      </MenuContext.Provider>
       <Footer>
-        <Link href={"/"}>Impressum</Link>
-        <Link href={"/"}>Instagram</Link>
+        <StyledLink href={"/"}>Impressum</StyledLink>
+        <StyledLink href={"/"}>Instagram</StyledLink>
       </Footer>
     </PageContainer>
   );
 }
 
-const PageContainer = styled.main``;
-
-const Header = styled.header`
-  position: sticky;
-  top: 0;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  height: 70px;
-  background: white;
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 1px;
-    background: black;
-  }
+const PageContainer = styled.main`
+  position: relative;
 `;
 
-const Content = styled.article`
-  max-width: 1200px;
-  margin: 50px auto;
+const Content = styled.article<{ $menuOpen: boolean }>`
+  margin: 0 auto 50px;
+  filter: ${({ $menuOpen }) => ($menuOpen ? "blur(15px)" : "none")};
 `;
 
 const Headline = styled.h1`
@@ -54,5 +69,14 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
   border-top: 1px solid black;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration: underline;
+  font-size: 20px;
 `;

@@ -30,7 +30,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <GlobalStyles />
 
-          {children}
+          <Layout>{children}</Layout>
         </StyledComponentsRegistry>
       </body>
     </html>

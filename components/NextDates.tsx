@@ -1,17 +1,8 @@
 "use client";
 
 import styled from "styled-components";
-import Image from "next/image";
-import together1 from "@/public/images/together/together1.png";
-import together2 from "@/public/images/together/together2.png";
-import together3 from "@/public/images/together/together3.png";
-import together4 from "@/public/images/together/together4.png";
-import together5 from "@/public/images/together/together5.png";
-import together6 from "@/public/images/together/together6.png";
-import together7 from "@/public/images/together/together7.png";
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { useImageCountLoop } from "@/utils/imageCountLoop";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export function NextDates() {
   const headlineRef = useRef(null);
@@ -19,7 +10,7 @@ export function NextDates() {
   const isInView = useInView(headlineRef, { once: true });
 
   return (
-    <NextDatesContainer>
+    <NextDatesContainer id="next-dates">
       <TextSection>
         <Headline
           ref={headlineRef}
@@ -40,11 +31,14 @@ export function NextDates() {
 
 const NextDatesContainer = styled.article`
   height: 90dvh;
+  //for navigation
+  padding-top: 10vh;
+  margin-top: -10vh;
 `;
 
 const TextSection = styled.section`
   width: 100%;
-  padding-top: 30dvh;
+  padding-top: 20dvh;
   text-align: center;
 `;
 
@@ -52,6 +46,7 @@ const Headline = styled(motion.h2)`
   font-family: "Melodrama";
   margin: 0 0 3vh 0;
   font-size: 7vw;
+  font-weight: 100;
   @media only screen and (max-width: 950px) {
     font-size: 10vw;
   }

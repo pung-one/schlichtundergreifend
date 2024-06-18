@@ -37,7 +37,7 @@ export function Together() {
   const imageCount = useImageCountLoop(images, 3000);
 
   return (
-    <TogetherContainer>
+    <TogetherContainer id="together">
       <ImageSection>
         <AnimatePresence mode="wait">
           <motion.div
@@ -85,6 +85,9 @@ const TogetherContainer = styled.article`
   @media only screen and (max-width: 950px) {
     flex-direction: column-reverse;
   }
+  //for navigation
+  padding-top: 10vh;
+  margin-top: -10vh;
 `;
 
 const ImageSection = styled.section`

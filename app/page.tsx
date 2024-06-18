@@ -6,7 +6,7 @@ import { Together } from "@/components/Together";
 
 export default function Home() {
   return (
-    <PageContainer>
+    <>
       <Hero />
 
       <Food />
@@ -14,6 +14,6 @@ export default function Home() {
       <Together />
 
       <NextDates />
-    </PageContainer>
+    </>
   );
 }

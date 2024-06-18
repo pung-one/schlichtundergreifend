@@ -33,7 +33,7 @@ export function Food() {
   console.log("render");
 
   return (
-    <FoodContainer>
+    <FoodContainer id="food">
       <TextSection>
         <Headline
           ref={headlineRef}
@@ -87,6 +87,9 @@ const FoodContainer = styled.article`
   @media only screen and (max-width: 950px) {
     flex-direction: column;
   }
+  //for navigation
+  padding-top: 10vh;
+  margin-top: -10vh;
 `;
 
 const ImageSection = styled.section`
