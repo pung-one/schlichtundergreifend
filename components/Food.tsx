@@ -87,16 +87,12 @@ const FoodContainer = styled.article`
   @media only screen and (max-width: 950px) {
     flex-direction: column;
   }
-  //for navigation
-  padding-top: 10vh;
-  margin-top: -10vh;
 `;
 
 const ImageSection = styled.section`
   flex: 1;
   width: 50%;
   overflow: hidden;
-  padding: 4vw;
   @media only screen and (max-width: 950px) {
     width: 100%;
     height: 50%;
@@ -123,6 +119,7 @@ const TextSection = styled.section`
   width: 50%;
   padding: 0 20px;
   @media only screen and (max-width: 950px) {
+    justify-content: flex-start;
     width: 100%;
     height: 50%;
   }
@@ -132,10 +129,10 @@ const Headline = styled(motion.h2)`
   font-family: "Melodrama";
   font-weight: 100;
   width: fit-content;
-  margin: 0 0 3vh 0;
+  margin: 0 0 3vw 0;
   font-size: 7vw;
   @media only screen and (max-width: 950px) {
-    font-size: 10vw;
+    font-size: 15vw;
   }
 `;
 

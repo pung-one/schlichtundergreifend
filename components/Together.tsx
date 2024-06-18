@@ -40,7 +40,7 @@ export function Together() {
     <TogetherContainer id="together">
       <ImageSection>
         <AnimatePresence mode="wait">
-          <motion.div
+          <ImageContainer
             key={imageCount}
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -53,7 +53,7 @@ export function Together() {
               src={images[imageCount]}
               alt="Esstisch im Garten im Frühling"
             />
-          </motion.div>
+          </ImageContainer>
         </AnimatePresence>
       </ImageSection>
 
@@ -85,19 +85,19 @@ const TogetherContainer = styled.article`
   @media only screen and (max-width: 950px) {
     flex-direction: column-reverse;
   }
-  //for navigation
-  padding-top: 10vh;
-  margin-top: -10vh;
 `;
 
 const ImageSection = styled.section`
   flex: 1;
   width: 50%;
-  padding: 4vw;
   @media only screen and (max-width: 950px) {
     width: 100%;
     height: 50%;
   }
+`;
+
+const ImageContainer = styled(motion.div)`
+  height: 100%;
 `;
 
 const StyledImage = styled(Image)`
@@ -115,6 +115,7 @@ const TextSection = styled.section`
   width: 50%;
   padding: 0 20px;
   @media only screen and (max-width: 950px) {
+    justify-content: flex-start;
     width: 100%;
     height: 50%;
   }
@@ -127,7 +128,7 @@ const Headline = styled(motion.h2)`
   margin: 0 0 3vh 0;
   font-size: 7vw;
   @media only screen and (max-width: 950px) {
-    font-size: 10vw;
+    font-size: 15vw;
   }
 `;
 

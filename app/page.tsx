@@ -9,9 +9,15 @@ export default function Home() {
     <>
       <Hero />
 
+      <hr style={{ margin: "15vh auto", width: "80%" }} />
+
       <Food />
 
+      <hr style={{ margin: "15vh auto", width: "80%" }} />
+
       <Together />
+
+      <hr style={{ margin: "15vh auto", width: "80%" }} />
 
       <NextDates />
     </>
