@@ -30,7 +30,7 @@ export function NextDates() {
 }
 
 const NextDatesContainer = styled.article`
-  height: 90dvh;
+  height: 90vh;
   //for navigation
   padding-top: 10vh;
   margin-top: -10vh;
@@ -38,7 +38,7 @@ const NextDatesContainer = styled.article`
 
 const TextSection = styled.section`
   width: 100%;
-  padding-top: 20dvh;
+  padding-top: 20vh;
   text-align: center;
 `;
 

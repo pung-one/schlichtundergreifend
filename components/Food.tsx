@@ -83,7 +83,7 @@ export function Food() {
 
 const FoodContainer = styled.article`
   display: flex;
-  height: 90dvh;
+  height: 90vh;
   @media only screen and (max-width: 950px) {
     flex-direction: column;
   }
@@ -94,12 +94,12 @@ const FoodContainer = styled.article`
 
 const ImageSection = styled.section`
   flex: 1;
-  max-width: 50%;
+  width: 50%;
   overflow: hidden;
   padding: 4vw;
   @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
+    width: 100%;
+    height: 50%;
   }
 `;
 
@@ -120,11 +120,11 @@ const TextSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
+  width: 50%;
   padding: 0 20px;
   @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
+    width: 100%;
+    height: 50%;
   }
 `;
 

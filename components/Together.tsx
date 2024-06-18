@@ -42,9 +42,9 @@ export function Together() {
         <AnimatePresence mode="wait">
           <motion.div
             key={imageCount}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5 }}
             style={{ height: "100%" }}
           >
@@ -81,7 +81,7 @@ export function Together() {
 
 const TogetherContainer = styled.article`
   display: flex;
-  height: 90dvh;
+  height: 90vh;
   @media only screen and (max-width: 950px) {
     flex-direction: column-reverse;
   }
@@ -92,11 +92,11 @@ const TogetherContainer = styled.article`
 
 const ImageSection = styled.section`
   flex: 1;
-  max-width: 50%;
+  width: 50%;
   padding: 4vw;
   @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
+    width: 100%;
+    height: 50%;
   }
 `;
 
@@ -112,11 +112,11 @@ const TextSection = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 50%;
+  width: 50%;
   padding: 0 20px;
   @media only screen and (max-width: 950px) {
-    max-width: 100%;
-    max-height: 50%;
+    width: 100%;
+    height: 50%;
   }
 `;
 
