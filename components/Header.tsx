@@ -5,13 +5,15 @@ import logoUp from "@/public/logo/logo.png";
 
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MenuContext } from "./Layout";
 
 export function Header() {
-  const { scrollY } = useScroll();
+  const [menuButtonDisabled, setMenuButtonDisabled] = useState<boolean>(true);
 
   const { menuOpen, setMenuOpen } = useContext(MenuContext);
+
+  const { scrollY } = useScroll();
 
   const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
 
@@ -33,7 +35,14 @@ export function Header() {
 
   const borderWidth = useTransform(scrollY, [250, 450], ["0%", "100%"]);
 
-  const buttonOpacity = useTransform(scrollY, [350, 400], ["0", "1"]);
+  const buttonOpacity = useTransform(scrollY, [350, 400], [0, 1]);
+
+  useEffect(() => {
+    buttonOpacity.on("change", (latest) => {
+      latest === 1 && setMenuButtonDisabled(false);
+      latest === 0 && setMenuButtonDisabled(true);
+    });
+  }, []);
 
   return (
     <Container style={{ height: blackLogoSize }}>
@@ -47,6 +56,7 @@ export function Header() {
       </BlackLogoContainer>
 
       <MenuButton
+        disabled={menuButtonDisabled}
         onClick={() => setMenuOpen(!menuOpen)}
         style={{ opacity: buttonOpacity }}
       >
@@ -79,11 +89,11 @@ const MenuButton = styled(motion.button)`
   background: none;
   border: none;
   border-radius: 3px;
+  cursor: ${({ disabled }) => !disabled && "pointer"};
   * {
     font-size: 4vh;
   }
   &:hover {
-    cursor: pointer;
     transform: scale(1.1);
     filter: drop-shadow(0 0 15px grey);
     * {

@@ -34,7 +34,7 @@ export function Together() {
     together7,
   ];
 
-  const imageCount = useImageCountLoop(images, 3000);
+  const imageCount = useImageCountLoop(images, 3500);
 
   return (
     <TogetherContainer>
@@ -110,14 +110,14 @@ const TextSection = styled.section`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 50%;
-  padding: 0 20px;
+  padding: 20vh 20px;
   @media only screen and (max-width: 950px) {
     justify-content: flex-start;
     width: 100%;
     height: 50%;
+    padding: 0 20px;
   }
 `;
 

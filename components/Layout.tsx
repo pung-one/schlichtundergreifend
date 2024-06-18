@@ -32,7 +32,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
     document.body.style.overflow = menuOpen ? "hidden" : "initial";
   }, [menuOpen]);
 
-  console.log(menuOpen);
   return (
     <PageContainer>
       <MenuContext.Provider

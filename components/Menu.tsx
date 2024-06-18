@@ -6,8 +6,6 @@ import Link from "next/link";
 export function Menu() {
   const { menuOpen, setMenuOpen } = useContext(MenuContext);
 
-  console.log(menuOpen);
-
   return (
     <MenuContainer $menuOpen={menuOpen}>
       <Nav>

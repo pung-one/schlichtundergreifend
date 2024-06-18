@@ -30,8 +30,6 @@ export function Food() {
 
   const imageCount = useImageCountLoop(images, 5000);
 
-  console.log("render");
-
   return (
     <FoodContainer>
       <TextSection>
@@ -114,14 +112,14 @@ const TextSection = styled.section`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 50%;
-  padding: 0 20px;
+  padding: 20vh 20px;
   @media only screen and (max-width: 950px) {
     justify-content: flex-start;
     width: 100%;
     height: 50%;
+    padding: 0 20px;
   }
 `;
 
