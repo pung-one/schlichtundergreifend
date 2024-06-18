@@ -14,6 +14,7 @@ export function Header() {
   const { menuOpen, setMenuOpen } = useContext(MenuContext);
 
   const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
+
   const blackLogoLeft = useTransform(
     scrollY,
     [0, 250, 750],
@@ -84,6 +85,9 @@ const MenuButton = styled(motion.button)`
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+    filter: drop-shadow(0 0 15px grey);
+    * {
+    }
   }
   transition: transform 0.2s ease;
 `;

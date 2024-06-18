@@ -58,11 +58,8 @@ const PageContainer = styled.main`
 
 const Content = styled.article<{ $menuOpen: boolean }>`
   margin: 0 auto 50px;
-  filter: ${({ $menuOpen }) => ($menuOpen ? "blur(15px)" : "none")};
-`;
-
-const Headline = styled.h1`
-  font-family: "RobotoThin";
+  filter: ${({ $menuOpen }) =>
+    $menuOpen ? "blur(15px) drop-shadow(0 0 10px black)" : "none"};
 `;
 
 const Footer = styled.footer`
