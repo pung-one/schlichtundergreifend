@@ -37,7 +37,7 @@ export function Together() {
   const imageCount = useImageCountLoop(images, 3000);
 
   return (
-    <TogetherContainer id="together">
+    <TogetherContainer>
       <ImageSection>
         <AnimatePresence mode="wait">
           <ImageContainer

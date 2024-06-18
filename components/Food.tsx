@@ -33,7 +33,7 @@ export function Food() {
   console.log("render");
 
   return (
-    <FoodContainer id="food">
+    <FoodContainer>
       <TextSection>
         <Headline
           ref={headlineRef}

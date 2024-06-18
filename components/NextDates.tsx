@@ -10,7 +10,7 @@ export function NextDates() {
   const isInView = useInView(headlineRef, { once: true });
 
   return (
-    <NextDatesContainer id="next-dates">
+    <NextDatesContainer>
       <TextSection>
         <Headline
           ref={headlineRef}
