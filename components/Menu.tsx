@@ -51,8 +51,7 @@ const Nav = styled.nav`
   gap: 20px;
   padding: 30px;
   background: white;
-  border-radius: 5px;
-  box-shadow: 0 0 30px 30px white;
+  box-shadow: 0 0 25px 35px white;
 `;
 
 const NavElement = styled(Link)`
