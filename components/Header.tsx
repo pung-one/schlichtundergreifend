@@ -105,12 +105,12 @@ const MenuButton = styled(motion.button)`
 const BlackLogoContainer = styled(motion.div)`
   position: absolute;
   height: 100%;
-  width: fit-content;
+  width: 100%;
 `;
 
 const BlackLogo = styled(Image)`
   height: 100%;
-  width: fit-content;
+  width: 100%;
   padding: 10px;
   object-fit: contain;
   object-position: center;

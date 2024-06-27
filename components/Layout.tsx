@@ -22,11 +22,11 @@ export const MenuContext = createContext<{
 export function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (typeof window !== "undefined") {
       window.history.scrollRestoration = "manual";
     }
-  }, []);
+  }, []); */
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "initial";
@@ -37,16 +37,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <MenuContext.Provider
         value={{ menuOpen: menuOpen, setMenuOpen: setMenuOpen }}
       >
-        <Header />
-
         <Menu />
 
         <Content $menuOpen={menuOpen}>{children}</Content>
       </MenuContext.Provider>
-      <Footer>
+      {/* <Footer>
         <StyledLink href={"/"}>Impressum</StyledLink>
         <StyledLink href={"/"}>Instagram</StyledLink>
-      </Footer>
+      </Footer> */}
     </PageContainer>
   );
 }
@@ -56,7 +54,6 @@ const PageContainer = styled.main`
 `;
 
 const Content = styled.article<{ $menuOpen: boolean }>`
-  margin: 0 auto 50px;
   filter: ${({ $menuOpen }) =>
     $menuOpen ? "blur(15px) drop-shadow(0 0 10px black)" : "none"};
 `;
