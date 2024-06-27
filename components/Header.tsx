@@ -15,7 +15,7 @@ export function Header() {
 
   const { scrollY } = useScroll();
 
-  const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
+  const blackLogoPosition = useTransform(scrollY, [0, 125], ["50%", "0%"]);
 
   const blackLogoLeft = useTransform(
     scrollY,
@@ -49,7 +49,7 @@ export function Header() {
       <BlackLogoContainer
         style={{ y: blackLogoPosition, left: blackLogoLeft, x: blackLogoX }}
         initial={{ y: "100%" }}
-        animate={{ y: "55%" }}
+        animate={{ y: "50%" }}
         transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
       >
         <BlackLogo src={logoUp} alt="Schlicht und Ergreifend Logo" />

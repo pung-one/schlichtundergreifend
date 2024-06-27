@@ -12,11 +12,13 @@ export function Hero() {
       <ImageContainer>
         <WhiteLogo
           initial={{ y: "-100%" }}
-          animate={{ y: "-45%" }}
+          animate={{ y: "-50%" }}
           transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
           src={logoDown}
           alt="Schlicht und Ergreifend Logo"
         />
+
+        {/*  <Text>Catering & Popup Restaurant</Text> */}
 
         <StyledImage
           priority
@@ -38,6 +40,15 @@ const WhiteLogo = styled(motion(Image))`
   object-position: center;
 `;
 
+const Text = styled.p`
+  z-index: 2;
+  font-family: "Melodrama";
+  color: white;
+  font-size: 5vw;
+  position: absolute;
+  margin: 30vh auto;
+`;
+
 const ImageContainer = styled.div`
   position: relative;
   overflow: hidden;
@@ -50,4 +61,5 @@ const StyledImage = styled(Image)`
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: brightness(80%);
 `;
