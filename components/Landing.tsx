@@ -6,77 +6,77 @@ import { animate, motion, transform } from "framer-motion";
 import logoDown from "@/public/logo/logo_white.png";
 import heroImage from "@/public/images/hero/messy-table1.png";
 import Link from "next/link";
-import { Header } from "./Header";
 
 export function Landing() {
   return (
     <LandingContainer>
-      <Header />
-
       <ImageContainer>
-        <WhiteLogo
-          initial={{ y: "-100%" }}
-          animate={{ y: "-50%" }}
+        <Headline
+          initial={{ y: "0rem" }}
+          animate={{ y: "-4rem" }}
           transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
-          src={logoDown}
-          alt="Schlicht und Ergreifend Logo"
-        />
+        >
+          schlicht +
+        </Headline>
 
-        <StyledImage
-          priority
-          src={heroImage}
-          alt="Esstisch im Garten im Frühling"
-        />
+        <Headline
+          $white
+          initial={{ y: "-8rem" }}
+          animate={{ y: "0rem" }}
+          transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
+        >
+          ergreifend
+          <br />
+          dining
+        </Headline>
+
+        <StyledImage priority src={heroImage} alt="" />
       </ImageContainer>
 
       <MainNavigation>
         <StyledLink
           href={"/catering"}
-          whileHover={{
-            transform: ["scale(1)", "scale(1.06)", "scale(1)"],
-          }}
           transition={{ duration: 0.8, repeat: Infinity }}
         >
           Catering
         </StyledLink>
 
-        <StyledLink href={"/catering"} $isMiddle>
+        <StyledLink href={"/popup"} $isMiddle>
           Popup
         </StyledLink>
 
-        <StyledLink href={"/catering"}>Zu uns</StyledLink>
+        <StyledLink href={"/about"}>Zu uns</StyledLink>
       </MainNavigation>
     </LandingContainer>
   );
 }
 
 const LandingContainer = styled.div`
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  max-height: 80dvh;
 `;
 
-const WhiteLogo = styled(motion(Image))`
-  z-index: 3;
+const Headline = styled(motion.h1)<{ $white?: boolean }>`
+  z-index: ${({ $white }) => ($white ? "3" : "-1")};
   position: absolute;
-  height: 20vh;
+  font-family: "Melodrama";
+  font-size: 4rem;
+  line-height: 4rem;
+  color: ${({ $white }) => ($white ? "white" : "black")};
   width: 100%;
-  padding: 10px;
-  object-fit: contain;
-  object-position: center;
+  text-align: center;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  overflow: hidden;
   width: 100%;
-  flex: 1;
+  max-height: 100%;
 `;
 
 const StyledImage = styled(Image)`
+  z-index: 2;
   width: 100%;
-  height: 100%;
+  height: 80dvh;
   object-fit: cover;
   object-position: center;
   filter: brightness(70%);
@@ -92,7 +92,7 @@ const MainNavigation = styled.nav`
 
 const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
   flex: 1;
-  padding: 50px;
+  padding: 3 0px;
   font-family: "Melodrama";
   font-size: 50px;
   color: white;

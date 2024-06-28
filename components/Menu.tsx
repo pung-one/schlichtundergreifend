@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { MenuContext } from "./Layout";
 import Link from "next/link";
 
-export function Menu() {
-  const { menuOpen, setMenuOpen } = useContext(MenuContext);
-
+export function Menu({
+  menuOpen,
+  setMenuOpen,
+}: {
+  menuOpen: boolean;
+  setMenuOpen: (prev: boolean) => void;
+}) {
   return (
     <MenuContainer $menuOpen={menuOpen}>
       <Nav>

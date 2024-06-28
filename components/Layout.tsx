@@ -11,14 +11,6 @@ import {
 import { Menu } from "./Menu";
 import { Header } from "./Header";
 
-export const MenuContext = createContext<{
-  menuOpen: boolean;
-  setMenuOpen: Dispatch<SetStateAction<boolean>>;
-}>({
-  menuOpen: false,
-  setMenuOpen: () => {},
-});
-
 export function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
@@ -34,13 +26,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <PageContainer>
-      <MenuContext.Provider
-        value={{ menuOpen: menuOpen, setMenuOpen: setMenuOpen }}
-      >
-        <Menu />
+      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-        <Content $menuOpen={menuOpen}>{children}</Content>
-      </MenuContext.Provider>
+      <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+
+      <Content $menuOpen={menuOpen}>{children}</Content>
       {/* <Footer>
         <StyledLink href={"/"}>Impressum</StyledLink>
         <StyledLink href={"/"}>Instagram</StyledLink>
