@@ -107,5 +107,5 @@ const StyledImage = styled(Image)`
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(70%);
+  filter: brightness(60%);
 `;
