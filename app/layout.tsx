@@ -4,15 +4,33 @@ import StyledComponentsRegistry from "@/lib/registry";
 import type { Metadata } from "next";
 import ReactDOM from "react-dom";
 
-ReactDOM.preload("/fonts/Roboto-Thin.ttf", {
+/* ReactDOM.preload("/fonts/Melodrama-Variable.woff2", {
+  as: "font",
+  crossOrigin: "",
+});
+ReactDOM.preload("/fonts/Melodrama-Variable.woff", {
+  as: "font",
+  crossOrigin: "",
+});
+ReactDOM.preload("/fonts/Melodrama-Variable.truetype", {
   as: "font",
   crossOrigin: "",
 });
 
-ReactDOM.preload("/fonts/Cambo-Regular.ttf", {
+ReactDOM.preload("/fonts/Nunito-Variable.woff", {
   as: "font",
   crossOrigin: "",
 });
+
+ReactDOM.preload("/fonts/Nunito-Variable.woff2", {
+  as: "font",
+  crossOrigin: "",
+});
+
+ReactDOM.preload("/fonts/Nunito-Variable.ttf", {
+  as: "font",
+  crossOrigin: "",
+}); */
 
 export const metadata: Metadata = {
   title: "Schlicht & Ergreifend",

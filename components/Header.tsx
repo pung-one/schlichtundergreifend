@@ -25,19 +25,17 @@ export function Header({
 
 const Container = styled(motion.header)`
   position: relative;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  overflow: hidden;
   width: 100%;
   height: 20dvh;
   background: none;
 `;
 
 const MenuButton = styled(motion.button)`
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
+  right: 0;
   height: 6vh;
   width: 6vh;
   margin: 20px;
@@ -50,9 +48,6 @@ const MenuButton = styled(motion.button)`
   }
   &:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 15px grey);
-    * {
-    }
   }
   transition: transform 0.2s ease;
 `;

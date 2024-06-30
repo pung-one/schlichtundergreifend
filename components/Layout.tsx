@@ -30,11 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      <Content $menuOpen={menuOpen}>{children}</Content>
-      {/* <Footer>
-        <StyledLink href={"/"}>Impressum</StyledLink>
-        <StyledLink href={"/"}>Instagram</StyledLink>
-      </Footer> */}
+      <BlurWrapper $menuOpen={menuOpen}>{children}</BlurWrapper>
     </PageContainer>
   );
 }
@@ -43,23 +39,7 @@ const PageContainer = styled.main`
   position: relative;
 `;
 
-const Content = styled.article<{ $menuOpen: boolean }>`
+const BlurWrapper = styled.article<{ $menuOpen: boolean }>`
   filter: ${({ $menuOpen }) =>
     $menuOpen ? "blur(15px) drop-shadow(0 0 10px black)" : "none"};
-`;
-
-const Footer = styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px;
-  border-top: 1px solid black;
-`;
-
-const StyledLink = styled(Link)`
-  color: black;
-  text-decoration: underline;
-  font-size: 20px;
 `;

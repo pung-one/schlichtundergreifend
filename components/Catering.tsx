@@ -10,9 +10,14 @@ export function Catering() {
     <Container>
       <ImageContainer>
         <Headline
-          initial={{ y: "0rem" }}
-          animate={{ y: "-3rem" }}
-          transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
+          initial={{ y: "0vh", opacity: 0 }}
+          animate={{ y: "-4vh", opacity: 1 }}
+          transition={{
+            delay: 0.3,
+            ease: "circOut",
+            y: { duration: 0.5 },
+            opacity: { duration: 0.3 },
+          }}
         >
           catering
         </Headline>
@@ -20,13 +25,28 @@ export function Catering() {
         <WhiteHeadlineContainer>
           <Headline
             $white
-            initial={{ y: "-6rem" }}
-            animate={{ y: "-3rem" }}
-            transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
+            initial={{ y: "-8vh", opacity: 0 }}
+            animate={{ y: "-4vh", opacity: 1 }}
+            transition={{
+              delay: 0.3,
+              ease: "circOut",
+              y: { duration: 0.5 },
+              opacity: { duration: 0.3 },
+            }}
           >
             catering
           </Headline>
         </WhiteHeadlineContainer>
+
+        <Text
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          Anfragen per Email:
+          <br />
+          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
+        </Text>
 
         <StyledImage
           priority
@@ -44,10 +64,17 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 80dvh;
+  flex: 1;
+`;
+
 const WhiteHeadlineContainer = styled.div`
   position: absolute;
   overflow: hidden;
-  height: 6rem;
+  height: 8vh;
   width: 100%;
 `;
 
@@ -55,17 +82,23 @@ const Headline = styled(motion.h1)<{ $white?: boolean }>`
   z-index: ${({ $white }) => ($white ? "3" : "-1")};
   position: absolute;
   font-family: "Melodrama";
-  font-size: 6rem;
-  line-height: 6rem;
+  font-size: 8vh;
+  line-height: 8vh;
   color: ${({ $white }) => ($white ? "white" : "black")};
   width: 100%;
   text-align: center;
 `;
 
-const ImageContainer = styled.div`
-  position: relative;
+const Text = styled(motion.p)`
+  z-index: 3;
+  position: absolute;
+  margin-top: 30vh;
   width: 100%;
-  flex: 1;
+  text-align: center;
+  color: white;
+  a {
+    color: white;
+  }
 `;
 
 const StyledImage = styled(Image)`
