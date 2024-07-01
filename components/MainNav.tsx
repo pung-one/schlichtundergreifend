@@ -44,7 +44,7 @@ const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
   text-align: center;
   text-decoration: none;
   background: none;
-  padding: 1.5vh 0;
+  padding: 3vh 0;
   border-top: 1px solid white;
   border-left: ${({ $isMiddle }) => ($isMiddle ? "1px solid white" : "none")};
   border-right: ${({ $isMiddle }) => ($isMiddle ? "1px solid white" : "none")};

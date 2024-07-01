@@ -57,7 +57,7 @@ export function PageContainer({ children, headline, backgroundImage }: Props) {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 85dvh;
+  height: 80dvh;
 `;
 
 const WhiteHeadlineContainer = styled.div`

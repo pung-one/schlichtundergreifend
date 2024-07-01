@@ -11,10 +11,32 @@ export function Popup() {
     <PageContainer headline="popup" backgroundImage={popup1}>
       <TextContent>
         <Events>
-          <h2>upcoming:</h2>
-
           <ul>
-            <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
           </ul>
         </Events>
 
@@ -54,12 +76,6 @@ const Events = styled.div`
   max-width: 600px;
   margin: 15vh auto 10vh;
   padding: 20px;
-  h2 {
-    font-family: "Melodrama";
-    font-size: 40px;
-    width: fit-content;
-    margin-bottom: 30px;
-  }
   ul {
     list-style: none;
     display: flex;
@@ -67,8 +83,10 @@ const Events = styled.div`
     gap: 25px;
     max-height: 30vh;
     overflow-y: scroll;
-    border: 1px solid white;
     padding: 15px;
+    li {
+      text-align: center;
+    }
   }
   @media only screen and (max-width: 1024px) {
     h2 {

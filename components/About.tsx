@@ -92,7 +92,6 @@ const Section = styled.section`
   color: white;
   @media only screen and (max-width: 900px) {
     flex-direction: column;
-    margin: auto;
   }
 `;
 
@@ -113,9 +112,6 @@ const Text = styled.div`
   position: relative;
   color: white;
   padding: 15px 15px;
-  @media only screen and (max-width: 900px) {
-    width: 100%;
-  }
   p {
     max-width: 500px;
   }
@@ -125,14 +121,11 @@ const Text = styled.div`
   ul {
     list-style: none;
   }
-`;
 
-const StyledImage = styled(Image)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(60%);
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+    p {
+      max-width: 100%;
+    }
+  }
 `;
