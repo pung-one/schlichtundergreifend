@@ -4,92 +4,29 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import Image from "next/image";
 import popup1 from "@/public/images/popup/popup1.png";
+import { PageContainer } from "./PageContainer";
 
 export function Popup() {
   return (
-    <Container>
-      <ImageContainer>
-        <Headline
-          initial={{ y: "0rem", opacity: 0 }}
-          animate={{ y: "-6vh", opacity: 1 }}
-          transition={{
-            delay: 0.5,
+    <PageContainer headline="popup" backgroundImage={popup1}>
+      <TextContent>
+        <Events>
+          <h2>upcoming:</h2>
 
-            y: { duration: 0.5 },
-            opacity: { duration: 0.3 },
-          }}
-        >
-          popup
-        </Headline>
+          <ul>
+            <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
+          </ul>
+        </Events>
 
-        <WhiteHeadlineContainer>
-          <Headline
-            $white
-            initial={{ y: "-12vh", opacity: 0 }}
-            animate={{ y: "-6vh", opacity: 1 }}
-            transition={{
-              delay: 0.3,
-
-              y: { duration: 0.5 },
-              opacity: { duration: 0.3 },
-            }}
-          >
-            popup
-          </Headline>
-        </WhiteHeadlineContainer>
-
-        <StyledImage priority src={popup1} alt="" />
-
-        <TextContent>
-          <Reservation>
-            Reservierungen per Email:
-            <br />
-            <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
-          </Reservation>
-
-          <Events>
-            <h2>demnächst</h2>
-
-            <ul>
-              <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
-              <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
-              <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
-              <li>13. - 15.7. Popup-Restaurant im Nil N°6</li>
-            </ul>
-          </Events>
-        </TextContent>
-      </ImageContainer>
-    </Container>
+        <Reservation>
+          Reservierungen per Email:
+          <br />
+          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
+        </Reservation>
+      </TextContent>
+    </PageContainer>
   );
 }
-
-const Container = styled.div`
-  height: 80dvh;
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
-
-const WhiteHeadlineContainer = styled.div`
-  position: absolute;
-  overflow: hidden;
-  height: 12vh;
-  width: 100%;
-`;
-
-const Headline = styled(motion.h1)<{ $white?: boolean }>`
-  z-index: ${({ $white }) => ($white ? "3" : "-1")};
-  position: absolute;
-  font-family: "Melodrama";
-  font-size: 12vh;
-  line-height: 12vh;
-  color: ${({ $white }) => ($white ? "white" : "black")};
-  width: 100%;
-  text-align: center;
-`;
 
 const TextContent = styled.div`
   z-index: 3;
@@ -97,13 +34,14 @@ const TextContent = styled.div`
   background: none;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
 `;
 
 const Reservation = styled.p`
+  width: fit-content;
   text-align: center;
   color: white;
-  margin: 15vh 0 10vh;
+  margin: auto;
   a {
     color: white;
   }
@@ -111,32 +49,30 @@ const Reservation = styled.p`
 
 const Events = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
   color: white;
+  width: fit-content;
+  max-width: 600px;
+  margin: 15vh auto 10vh;
+  padding: 20px;
   h2 {
-    flex: 1;
-    text-align: right;
     font-family: "Melodrama";
     font-size: 40px;
-    padding-right: 15px;
+    width: fit-content;
+    margin-bottom: 30px;
   }
   ul {
+    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    flex: 1;
-    padding: 15px 30px;
-    list-style: none;
+    max-height: 30vh;
+    overflow-y: scroll;
+    border: 1px solid white;
+    padding: 15px;
   }
-`;
-
-const StyledImage = styled(Image)`
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(60%);
+  @media only screen and (max-width: 1024px) {
+    h2 {
+      margin: 0 auto 20px;
+    }
+  }
 `;

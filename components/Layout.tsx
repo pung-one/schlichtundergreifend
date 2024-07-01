@@ -25,17 +25,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
   }, [menuOpen]);
 
   return (
-    <PageContainer>
+    <MainContainer>
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <Menu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <BlurWrapper $menuOpen={menuOpen}>{children}</BlurWrapper>
-    </PageContainer>
+    </MainContainer>
   );
 }
 
-const PageContainer = styled.main`
+const MainContainer = styled.main`
   position: relative;
 `;
 

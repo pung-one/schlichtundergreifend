@@ -23,7 +23,7 @@ export function Header({
 const Container = styled(motion.header)`
   position: relative;
   width: 100%;
-  height: 20dvh;
+  height: 15dvh;
   background: none;
 `;
 

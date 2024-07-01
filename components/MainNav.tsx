@@ -20,7 +20,7 @@ export function MainNav() {
         popup
       </StyledLink>
 
-      <StyledLink href={"/about"}>zu uns</StyledLink>
+      <StyledLink href={"/about"}>über uns</StyledLink>
     </MainNavigation>
   );
 }
@@ -31,6 +31,9 @@ const MainNavigation = styled(motion.nav)`
   bottom: 0;
   display: flex;
   width: 100%;
+  @media only screen and (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
@@ -41,7 +44,7 @@ const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
   text-align: center;
   text-decoration: none;
   background: none;
-  height: 10vh;
+  padding: 1.5vh 0;
   border-top: 1px solid white;
   border-left: ${({ $isMiddle }) => ($isMiddle ? "1px solid white" : "none")};
   border-right: ${({ $isMiddle }) => ($isMiddle ? "1px solid white" : "none")};
@@ -49,4 +52,8 @@ const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
     font-weight: 700;
   }
   transition: font-weight 0.3s ease;
+  @media only screen and (max-width: 1024px) {
+    border-left: none;
+    border-right: none;
+  }
 `;

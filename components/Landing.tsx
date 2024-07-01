@@ -59,13 +59,13 @@ export function Landing() {
 
 const LandingContainer = styled.div`
   position: relative;
-  height: 80dvh;
+  height: 85dvh;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 80dvh;
+  height: 100%;
 `;
 
 const WhiteHeadlineContainer = styled.div`

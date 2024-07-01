@@ -25,7 +25,7 @@ export function Menu({
         </NavElement>
 
         <NavElement onClick={() => setMenuOpen(false)} href={"/about"}>
-          zu uns
+          über uns
         </NavElement>
 
         <NavElement
