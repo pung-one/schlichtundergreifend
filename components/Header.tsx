@@ -1,11 +1,8 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import Image from "next/image";
-import logoUp from "@/public/logo/logo.png";
 
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
-import { useContext, useEffect, useState } from "react";
 
 export function Header({
   menuOpen,

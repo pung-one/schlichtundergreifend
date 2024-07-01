@@ -11,11 +11,11 @@ export function About() {
       <ImageContainer>
         <Headline
           initial={{ y: "0rem", opacity: 0 }}
-          animate={{ y: "-3rem", opacity: 1 }}
+          animate={{ y: "-6vh", opacity: 1 }}
           transition={{
             delay: 0.5,
-            ease: "circOut",
-            duration: 1,
+
+            y: { duration: 0.5 },
             opacity: { duration: 0.3 },
           }}
         >
@@ -25,12 +25,12 @@ export function About() {
         <WhiteHeadlineContainer>
           <Headline
             $white
-            initial={{ y: "-6rem", opacity: 0 }}
-            animate={{ y: "-3rem", opacity: 1 }}
+            initial={{ y: "-12vh", opacity: 0 }}
+            animate={{ y: "-6vh", opacity: 1 }}
             transition={{
-              delay: 0.5,
-              ease: "circOut",
-              duration: 0.5,
+              delay: 0.3,
+
+              y: { duration: 0.5 },
               opacity: { duration: 0.3 },
             }}
           >
@@ -107,14 +107,18 @@ export function About() {
 
 const Container = styled.div`
   height: 80dvh;
-  display: flex;
-  flex-direction: column;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 const WhiteHeadlineContainer = styled.div`
   position: absolute;
   overflow: hidden;
-  height: 6rem;
+  height: 12vh;
   width: 100%;
 `;
 
@@ -122,8 +126,8 @@ const Headline = styled(motion.h1)<{ $white?: boolean }>`
   z-index: ${({ $white }) => ($white ? "3" : "-1")};
   position: absolute;
   font-family: "Melodrama";
-  font-size: 6rem;
-  line-height: 6rem;
+  font-size: 12vh;
+  line-height: 12vh;
   color: ${({ $white }) => ($white ? "white" : "black")};
   width: 100%;
   text-align: center;
@@ -171,13 +175,6 @@ const Text = styled.div`
   ul {
     list-style: none;
   }
-`;
-
-const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 80dvh;
-  flex: 1;
 `;
 
 const StyledImage = styled(Image)`

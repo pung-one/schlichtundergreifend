@@ -11,10 +11,10 @@ export function Catering() {
       <ImageContainer>
         <Headline
           initial={{ y: "0vh", opacity: 0 }}
-          animate={{ y: "-4vh", opacity: 1 }}
+          animate={{ y: "-6vh", opacity: 1 }}
           transition={{
             delay: 0.3,
-            ease: "circOut",
+
             y: { duration: 0.5 },
             opacity: { duration: 0.3 },
           }}
@@ -25,11 +25,11 @@ export function Catering() {
         <WhiteHeadlineContainer>
           <Headline
             $white
-            initial={{ y: "-8vh", opacity: 0 }}
-            animate={{ y: "-4vh", opacity: 1 }}
+            initial={{ y: "-12vh", opacity: 0 }}
+            animate={{ y: "-6vh", opacity: 1 }}
             transition={{
               delay: 0.3,
-              ease: "circOut",
+
               y: { duration: 0.5 },
               opacity: { duration: 0.3 },
             }}
@@ -60,21 +60,18 @@ export function Catering() {
 
 const Container = styled.div`
   height: 80dvh;
-  display: flex;
-  flex-direction: column;
 `;
 
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 80dvh;
-  flex: 1;
+  height: 100%;
 `;
 
 const WhiteHeadlineContainer = styled.div`
   position: absolute;
   overflow: hidden;
-  height: 8vh;
+  height: 12vh;
   width: 100%;
 `;
 
@@ -82,8 +79,8 @@ const Headline = styled(motion.h1)<{ $white?: boolean }>`
   z-index: ${({ $white }) => ($white ? "3" : "-1")};
   position: absolute;
   font-family: "Melodrama";
-  font-size: 8vh;
-  line-height: 8vh;
+  font-size: 12vh;
+  line-height: 12vh;
   color: ${({ $white }) => ($white ? "white" : "black")};
   width: 100%;
   text-align: center;
@@ -102,6 +99,7 @@ const Text = styled(motion.p)`
 `;
 
 const StyledImage = styled(Image)`
+  position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
