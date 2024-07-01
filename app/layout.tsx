@@ -35,6 +35,14 @@ ReactDOM.preload("/fonts/Nunito-Variable.ttf", {
 export const metadata: Metadata = {
   title: "Schlicht & Ergreifend",
   description: "Down to earth fine dining.",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function RootLayout({

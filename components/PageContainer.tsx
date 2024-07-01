@@ -9,9 +9,17 @@ type Props = {
   children: ReactNode;
   headline: string;
   backgroundImage: StaticImageData;
+  altText: string;
+  blurUrl: string;
 };
 
-export function PageContainer({ children, headline, backgroundImage }: Props) {
+export function PageContainer({
+  children,
+  headline,
+  backgroundImage,
+  altText,
+  blurUrl,
+}: Props) {
   return (
     <Container>
       <Headline
@@ -46,7 +54,9 @@ export function PageContainer({ children, headline, backgroundImage }: Props) {
       <StyledImage
         priority
         src={backgroundImage}
-        alt="Esstisch im Garten im Frühling"
+        alt={altText}
+        placeholder="blur"
+        blurDataURL={blurUrl}
       />
 
       {children}

@@ -6,9 +6,14 @@ import Image from "next/image";
 import popup1 from "@/public/images/popup/popup1.png";
 import { PageContainer } from "./PageContainer";
 
-export function Popup() {
+export function Popup({ blurUrl }: { blurUrl: string }) {
   return (
-    <PageContainer headline="popup" backgroundImage={popup1}>
+    <PageContainer
+      headline="popup"
+      backgroundImage={popup1}
+      altText=""
+      blurUrl={blurUrl}
+    >
       <TextContent>
         <Events>
           <ul>

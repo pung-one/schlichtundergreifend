@@ -6,9 +6,14 @@ import Image from "next/image";
 import about1 from "@/public/images/about/about1.png";
 import { PageContainer } from "./PageContainer";
 
-export function About() {
+export function About({ blurUrl }: { blurUrl: string }) {
   return (
-    <PageContainer headline="über uns" backgroundImage={about1}>
+    <PageContainer
+      headline="über uns"
+      backgroundImage={about1}
+      altText=""
+      blurUrl={blurUrl}
+    >
       <TextContent>
         <Section>
           <Headline2>idee</Headline2>

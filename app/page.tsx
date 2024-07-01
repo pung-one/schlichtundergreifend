@@ -1,17 +1,7 @@
 import { Landing } from "@/components/Landing";
-import { Metadata } from "next";
+import { getBase64 } from "@/utils/createPlaceholder";
 
-export const metadata: Metadata = {
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  },
-};
-
-export default function Home() {
-  return <Landing />;
+export default async function Home() {
+  const blurUrl = await getBase64("hero/messy-table1.png");
+  return <Landing blurUrl={blurUrl} />;
 }
