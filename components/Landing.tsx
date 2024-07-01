@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import heroImage from "@/public/images/hero/messy-table1.png";
 import { MainNav } from "./MainNav";
 
-export function Landing() {
+export function Landing({ blurUrl }: { blurUrl: string }) {
   return (
     <LandingContainer>
       <ImageContainer>
@@ -49,7 +49,12 @@ export function Landing() {
           </Headline>
         </WhiteHeadlineContainer>
 
-        <StyledImage priority src={heroImage} alt="" />
+        <StyledImage
+          src={heroImage}
+          alt=""
+          placeholder="blur"
+          blurDataURL={blurUrl}
+        />
 
         <MainNav />
       </ImageContainer>

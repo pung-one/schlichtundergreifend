@@ -5,9 +5,14 @@ import styled from "styled-components";
 import gardenTable from "@/public/images/catering/gardentable.png";
 import { PageContainer } from "./PageContainer";
 
-export function Catering() {
+export function Catering({ blurUrl }: { blurUrl: string }) {
   return (
-    <PageContainer headline="catering" backgroundImage={gardenTable}>
+    <PageContainer
+      headline="catering"
+      backgroundImage={gardenTable}
+      altText="Esstisch im Garten im Frühling"
+      blurUrl={blurUrl}
+    >
       <TextContent>
         <Text>
           Anfragen per Email:
