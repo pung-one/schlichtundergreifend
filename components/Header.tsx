@@ -1,126 +1,78 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
-import Image from "next/image";
-import logoUp from "@/public/logo/logo.png";
 
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
-import { useContext, useEffect, useState } from "react";
-import { MenuContext } from "./Layout";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export function Header() {
-  const [menuButtonDisabled, setMenuButtonDisabled] = useState<boolean>(true);
-
-  const { menuOpen, setMenuOpen } = useContext(MenuContext);
-
-  const { scrollY } = useScroll();
-
-  const blackLogoPosition = useTransform(scrollY, [0, 125], ["55%", "0%"]);
-
-  const blackLogoLeft = useTransform(
-    scrollY,
-    [0, 250, 750],
-    ["50%", "50%", "0%"]
-  );
-  const blackLogoX = useTransform(
-    scrollY,
-    [0, 250, 750],
-    ["-50%", "-50%", "0%"]
-  );
-  const blackLogoSize = useTransform(
-    scrollY,
-    [0, 250, 450],
-    ["20vh", "20vh", "10vh"]
-  );
-
-  const borderWidth = useTransform(scrollY, [250, 450], ["0%", "100%"]);
-
-  const buttonOpacity = useTransform(scrollY, [350, 400], [0, 1]);
-
-  useEffect(() => {
-    buttonOpacity.on("change", (latest) => {
-      latest === 1 && setMenuButtonDisabled(false);
-      latest === 0 && setMenuButtonDisabled(true);
-    });
-  }, []);
+export function Header({
+  menuOpen,
+  setMenuOpen,
+}: {
+  menuOpen: boolean;
+  setMenuOpen: (prev: boolean) => void;
+}) {
+  const path = usePathname();
 
   return (
-    <Container style={{ height: blackLogoSize }}>
-      <BlackLogoContainer
-        style={{ y: blackLogoPosition, left: blackLogoLeft, x: blackLogoX }}
-        initial={{ y: "100%" }}
-        animate={{ y: "55%" }}
-        transition={{ delay: 0.5, duration: 1, ease: "circOut" }}
-      >
-        <BlackLogo src={logoUp} alt="Schlicht und Ergreifend Logo" />
-      </BlackLogoContainer>
+    <Container>
+      {path != "/" && (
+        <HomeButton
+          href={"/"}
+          onClick={() => setMenuOpen(false)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+          schlicht+
+          <br />
+          ergreifend
+        </HomeButton>
+      )}
 
-      <MenuButton
-        disabled={menuButtonDisabled}
-        onClick={() => setMenuOpen(!menuOpen)}
-        style={{ opacity: buttonOpacity }}
-      >
+      <MenuButton onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <TfiClose /> : <CiMenuBurger />}
       </MenuButton>
-
-      <BorderBottom style={{ width: borderWidth }} />
     </Container>
   );
 }
 
-const Container = styled(motion.header)`
-  z-index: 4;
-  position: sticky;
-  top: 0;
-  overflow: hidden;
+const Container = styled.header`
+  position: relative;
   width: 100%;
-  background: white;
+  height: 20dvh;
+  background: none;
 `;
 
-const MenuButton = styled(motion.button)`
+const HomeButton = styled(motion(Link))`
+  position: absolute;
+  left: 0;
+  font-family: "Melodrama";
+  font-weight: 700;
+  font-size: 2.5vh;
+  margin: 20px;
+  color: black;
+  text-decoration: none;
+`;
+
+const MenuButton = styled.button`
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 4vh;
-  top: 2vh;
+  right: 0;
   height: 6vh;
   width: 6vh;
+  margin: 20px;
   background: none;
   border: none;
-  border-radius: 3px;
   cursor: ${({ disabled }) => !disabled && "pointer"};
   * {
     font-size: 4vh;
   }
   &:hover {
     transform: scale(1.1);
-    filter: drop-shadow(0 0 15px grey);
-    * {
-    }
   }
   transition: transform 0.2s ease;
-`;
-
-const BlackLogoContainer = styled(motion.div)`
-  position: absolute;
-  height: 100%;
-  width: fit-content;
-`;
-
-const BlackLogo = styled(Image)`
-  height: 100%;
-  width: fit-content;
-  padding: 10px;
-  object-fit: contain;
-  object-position: center;
-`;
-
-const BorderBottom = styled(motion.div)`
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 1px;
-  background: black;
 `;

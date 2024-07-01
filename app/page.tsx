@@ -1,4 +1,4 @@
-import { Hero } from "@/components/Hero";
+import { Landing } from "@/components/Landing";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-    </>
-  );
+  return <Landing />;
 }
