@@ -1,7 +1,4 @@
-import { Food } from "@/components/Food";
 import { Landing } from "@/components/Landing";
-import { NextDates } from "@/components/NextDates";
-import { Together } from "@/components/Together";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
