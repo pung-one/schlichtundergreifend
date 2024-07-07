@@ -20,7 +20,7 @@ export function MainNav() {
         popup
       </StyledLink>
 
-      <StyledLink href={"/about"}>über uns</StyledLink>
+      <StyledLink href={"/about"}>zu uns</StyledLink>
     </MainNavigation>
   );
 }

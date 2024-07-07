@@ -15,41 +15,38 @@ export function Popup({ blurUrl }: { blurUrl: string }) {
       blurUrl={blurUrl}
     >
       <TextContent>
-        <Events>
-          <ul>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-          </ul>
-        </Events>
-
-        <Reservation>
-          Reservierungen per Email:
+        <Text>
+          Abende, an denen alles zusammenkommt, was schlicht+ergreifend Dining
+          ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
+          alles mitzuerleben und zu bereichern! Sobald die Termine stehen,
+          nehmen wir Reservierungen an. Weil die Plätze begrenzt sind, ist
+          spontan vorbeikommen leider nicht möglich. Ort + Spielzeit variieren -
+          wir halten dich hier und über Social Media auf dem Laufenden.
           <br />
-          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
-        </Reservation>
+          Übrigens auch, was Einblicke ins jeweilige Menü angeht!
+        </Text>
+
+        <Section>
+          <Headline2>demnächst</Headline2>
+
+          <Events>
+            <ul>
+              <li>
+                <span>13. - 15.7.</span>
+                <br />
+                Popup-Restaurant im Nil N°6
+              </li>
+            </ul>
+          </Events>
+        </Section>
+
+        <Section>
+          <Headline2>reservierungen</Headline2>
+
+          <Reservation>
+            <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
+          </Reservation>
+        </Section>
       </TextContent>
     </PageContainer>
   );
@@ -58,44 +55,74 @@ export function Popup({ blurUrl }: { blurUrl: string }) {
 const TextContent = styled.div`
   z-index: 3;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 20vh 0;
   background: none;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 `;
 
-const Reservation = styled.p`
-  width: fit-content;
-  text-align: center;
+const Text = styled.p`
+  position: relative;
   color: white;
-  margin: auto;
+  max-width: 600px;
+  margin: 0 auto;
   a {
     color: white;
+  }
+  ul {
+    list-style: none;
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 15px;
+    width: 100%;
+  }
+`;
+
+const Section = styled.section`
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+`;
+
+const Headline2 = styled.h2`
+  font-family: "Melodrama";
+  font-size: 4vh;
+  color: white;
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 15px;
   }
 `;
 
 const Events = styled.div`
   position: relative;
   color: white;
-  width: fit-content;
-  max-width: 600px;
-  margin: 15vh auto 10vh;
-  padding: 20px;
+  margin: 20px 60px;
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    max-height: 30vh;
-    overflow-y: scroll;
-    padding: 15px;
-    li {
-      text-align: center;
-    }
   }
-  @media only screen and (max-width: 1024px) {
-    h2 {
-      margin: 0 auto 20px;
-    }
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 15px;
+  }
+`;
+
+const Reservation = styled.p`
+  color: white;
+  margin: 20px 60px;
+  a {
+    color: white;
+  }
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 15px;
   }
 `;

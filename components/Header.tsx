@@ -50,10 +50,14 @@ const HomeButton = styled(motion(Link))`
   left: 0;
   font-family: "Melodrama";
   font-weight: 700;
-  font-size: 2.5vh;
+  font-size: 25px;
   margin: 20px;
   color: black;
   text-decoration: none;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 18px;
+  }
 `;
 
 const MenuButton = styled.button`
