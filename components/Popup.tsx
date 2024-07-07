@@ -1,10 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import styled from "styled-components";
-import Image from "next/image";
 import popup1 from "@/public/images/popup/popup1.png";
 import { PageContainer } from "./PageContainer";
+import { TextWrapper } from "./TextWrapper";
 
 export function Popup({ blurUrl }: { blurUrl: string }) {
   return (
@@ -14,74 +13,70 @@ export function Popup({ blurUrl }: { blurUrl: string }) {
       altText=""
       blurUrl={blurUrl}
     >
-      <TextContent>
-        <Text>
-          Abende, an denen alles zusammenkommt, was schlicht+ergreifend Dining
-          ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
-          alles mitzuerleben und zu bereichern! Sobald die Termine stehen,
-          nehmen wir Reservierungen an. Weil die Plätze begrenzt sind, ist
-          spontan vorbeikommen leider nicht möglich. Ort + Spielzeit variieren -
-          wir halten dich hier und über Social Media auf dem Laufenden.
-          <br />
-          Übrigens auch, was Einblicke ins jeweilige Menü angeht!
-        </Text>
+      <TextWrapper>
+        Abende, an denen alles zusammenkommt, was schlicht+ergreifend Dining
+        ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
+        alles mitzuerleben und zu bereichern!
+        <br />
+        <br />
+        Sobald die Termine stehen, nehmen wir Reservierungen an. Weil die Plätze
+        begrenzt sind, ist spontan vorbeikommen leider nicht möglich.
+        <br />
+        <br />
+        Ort + Spielzeit variieren - wir halten dich hier und über Social Media
+        auf dem Laufenden. Übrigens auch, was Einblicke ins jeweilige Menü
+        angeht!
+      </TextWrapper>
 
-        <Section>
-          <Headline2>demnächst</Headline2>
+      <Section>
+        <Headline2>demnächst</Headline2>
 
-          <Events>
-            <ul>
-              <li>
-                <span>13. - 15.7.</span>
-                <br />
-                Popup-Restaurant im Nil N°6
-              </li>
-            </ul>
-          </Events>
-        </Section>
+        <Events>
+          <ul>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+            <li>
+              <span>13. - 15.7.</span>
+              <br />
+              Popup-Restaurant im Nil N°6
+            </li>
+          </ul>
+        </Events>
+      </Section>
 
-        <Section>
-          <Headline2>reservierungen</Headline2>
+      <Section>
+        <Headline2>reservierungen</Headline2>
 
-          <Reservation>
-            <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
-          </Reservation>
-        </Section>
-      </TextContent>
+        <Reservation>
+          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
+        </Reservation>
+      </Section>
     </PageContainer>
   );
 }
-
-const TextContent = styled.div`
-  z-index: 3;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  padding: 20vh 0;
-  background: none;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-`;
-
-const Text = styled.p`
-  position: relative;
-  color: white;
-  max-width: 600px;
-  margin: 0 auto;
-  a {
-    color: white;
-  }
-  ul {
-    list-style: none;
-  }
-
-  @media only screen and (max-width: 900px) {
-    padding: 0 15px;
-    width: 100%;
-  }
-`;
 
 const Section = styled.section`
   max-width: 600px;

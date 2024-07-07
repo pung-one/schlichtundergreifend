@@ -17,17 +17,7 @@ ReactDOM.preload("/fonts/Melodrama-Variable.ttf", {
   crossOrigin: "",
 });
 
-ReactDOM.preload("/fonts/Nunito-Variable.woff", {
-  as: "font",
-  crossOrigin: "",
-});
-
-ReactDOM.preload("/fonts/Nunito-Variable.woff2", {
-  as: "font",
-  crossOrigin: "",
-});
-
-ReactDOM.preload("/fonts/Nunito-Variable.ttf", {
+ReactDOM.preload("/fonts/AveriaSans-Regular.ttf", {
   as: "font",
   crossOrigin: "",
 });

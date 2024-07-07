@@ -59,7 +59,9 @@ export function PageContainer({
         blurDataURL={blurUrl}
       />
 
-      {children}
+      <ScrollWrapper>
+        <BorderWrapper>{children}</BorderWrapper>
+      </ScrollWrapper>
     </Container>
   );
 }
@@ -96,4 +98,23 @@ const StyledImage = styled(Image)`
   object-fit: cover;
   object-position: center;
   filter: brightness(55%);
+`;
+
+const ScrollWrapper = styled.div`
+  position: relative;
+  z-index: 3;
+  background: none;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+`;
+
+const BorderWrapper = styled.div`
+  padding: 20vh 0 10vh;
+  min-height: 100%;
+  border: 8px solid white;
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 `;

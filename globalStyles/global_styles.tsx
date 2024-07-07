@@ -14,11 +14,8 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'Nunito';
-  src: url('/fonts/Nunito-Variable.woff2') format('woff2'),
-       url('/fonts/Nunito-Variable.woff') format('woff'),
-       url('/fonts/Nunito-Variable.ttf') format('truetype');
-  font-weight: 200 1000;
+  font-family: 'Averia Sans';
+  src: url('/fonts/AveriaSans-Regular.ttf') format('truetype');
   font-display: swap;
   font-style: normal;
 }
@@ -30,7 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 20px;
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', 'sans', Times, serif;
+    font-family: 'Averia Sans', 'sans', Times, serif;
     scroll-behavior: smooth;
     overscroll-behavior-block: none;
     overflow-anchor: none;

@@ -65,7 +65,7 @@ export function Landing({ blurUrl }: { blurUrl: string }) {
 const LandingContainer = styled.div`
   position: relative;
   height: 80dvh;
-  border: 10px solid white;
+  border: 8px solid white;
   border-top: none;
 `;
 
