@@ -62,8 +62,8 @@ export function PageContainer({
 
       {imageLoaded && (
         <ScrollWrapper
-          initial={{ filter: "brightness(0%)" }}
-          animate={{ filter: "brightness(100%)" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
           <BorderWrapper>{children}</BorderWrapper>
@@ -104,7 +104,7 @@ const StyledImage = styled(Image)`
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(55%);
+  filter: brightness(50%);
 `;
 
 const ScrollWrapper = styled(motion.div)`

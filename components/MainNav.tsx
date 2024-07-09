@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 export function MainNav() {
   return (
     <MainNavigation
-      initial={{ filter: "brightness(0%)" }}
-      animate={{ filter: "brightness(100%)" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
       <StyledLink href={"/catering"}>catering</StyledLink>
