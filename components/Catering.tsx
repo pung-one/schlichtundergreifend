@@ -5,13 +5,12 @@ import gardenTable from "@/public/images/catering/gardentable.png";
 import { PageContainer } from "./PageContainer";
 import { TextWrapper } from "./TextWrapper";
 
-export function Catering({ blurUrl }: { blurUrl: string }) {
+export function Catering() {
   return (
     <PageContainer
       headline="catering"
       backgroundImage={gardenTable}
       altText="Esstisch im Garten im Frühling"
-      blurUrl={blurUrl}
     >
       <TextWrapper>
         Lass uns gerne über deine Vorstellungen sprechen und wir schauen, wie

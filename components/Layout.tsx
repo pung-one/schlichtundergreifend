@@ -1,13 +1,7 @@
 "use client";
+
 import styled from "styled-components";
-import Link from "next/link";
-import {
-  Dispatch,
-  SetStateAction,
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import { useEffect, useState } from "react";
 import { Menu } from "./Menu";
 import { Header } from "./Header";
 
@@ -34,6 +28,5 @@ const MainContainer = styled.main`
 `;
 
 const BlurWrapper = styled.article<{ $menuOpen: boolean }>`
-  filter: ${({ $menuOpen }) =>
-    $menuOpen ? "blur(15px) drop-shadow(0 0 10px black)" : "none"};
+  filter: ${({ $menuOpen }) => ($menuOpen ? "blur(15px)" : "none")};
 `;

@@ -5,20 +5,26 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import heroImage from "@/public/images/hero/messy-table1.png";
 import { MainNav } from "./MainNav";
+import { usePathname } from "next/navigation";
 
-export function Landing({ blurUrl }: { blurUrl: string }) {
+export function Landing() {
+  const pathname = usePathname();
   return (
-    <LandingContainer>
+    <LandingContainer
+      key={pathname}
+      initial={{ filter: "brightness(0%)" }}
+      animate={{ filter: "brightness(100%)" }}
+      exit={{ filter: "brightness(0%)" }}
+      transition={{ duration: 0.4 }}
+    >
       <ImageContainer>
         <Headline
           style={{ x: "-50%" }}
           initial={{ y: "0vh", opacity: 0 }}
           animate={{ y: "-8vh", opacity: 1 }}
           transition={{
-            delay: 0.3,
-            ease: "circOut",
-            y: { duration: 0.5 },
-            opacity: { duration: 0.3 },
+            y: { duration: 0.3, delay: 0.5 },
+            opacity: { duration: 0.3, delay: 0.5 },
           }}
         >
           schlicht +
@@ -35,10 +41,8 @@ export function Landing({ blurUrl }: { blurUrl: string }) {
             initial={{ y: "-24vh", opacity: 0 }}
             animate={{ y: "-8vh", opacity: 1 }}
             transition={{
-              delay: 0.3,
-              ease: "circOut",
-              y: { duration: 0.5 },
-              opacity: { duration: 0.3 },
+              y: { duration: 0.3, delay: 0.5 },
+              opacity: { duration: 0.3, delay: 0.5 },
             }}
           >
             schlicht +
@@ -49,12 +53,7 @@ export function Landing({ blurUrl }: { blurUrl: string }) {
           </Headline>
         </WhiteHeadlineContainer>
 
-        <StyledImage
-          src={heroImage}
-          alt=""
-          placeholder="blur"
-          blurDataURL={blurUrl}
-        />
+        <StyledImage priority src={heroImage} alt="" />
 
         <MainNav />
       </ImageContainer>
@@ -62,7 +61,7 @@ export function Landing({ blurUrl }: { blurUrl: string }) {
   );
 }
 
-const LandingContainer = styled.div`
+const LandingContainer = styled(motion.div)`
   position: relative;
   height: 80dvh;
   border: 8px solid white;

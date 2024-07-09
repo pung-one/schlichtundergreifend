@@ -5,14 +5,9 @@ import about1 from "@/public/images/about/about1.png";
 import { PageContainer } from "./PageContainer";
 import { TextWrapper } from "./TextWrapper";
 
-export function About({ blurUrl }: { blurUrl: string }) {
+export function About() {
   return (
-    <PageContainer
-      headline="zu uns"
-      backgroundImage={about1}
-      altText=""
-      blurUrl={blurUrl}
-    >
+    <PageContainer headline="zu uns" backgroundImage={about1} altText="">
       <TextWrapper>
         Hinter schlicht+ergreifend Dining verbirgt sich der Raum und die
         Freiheit, uns mit Handwerk auszudrücken und auszuprobieren, was geht.

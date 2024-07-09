@@ -8,29 +8,11 @@ ReactDOM.preload("/fonts/Melodrama-Variable.woff2", {
   as: "font",
   crossOrigin: "",
 });
-/* ReactDOM.preload("/fonts/Melodrama-Variable.woff", {
-  as: "font",
-  crossOrigin: "",
-});
-ReactDOM.preload("/fonts/Melodrama-Variable.ttf", {
-  as: "font",
-  crossOrigin: "",
-}); */
-
-/* ReactDOM.preload("/fonts/Nunito-Variable.woff", {
-  as: "font",
-  crossOrigin: "",
-}); */
 
 ReactDOM.preload("/fonts/Nunito-Variable.woff2", {
   as: "font",
   crossOrigin: "",
 });
-
-/* ReactDOM.preload("/fonts/Nunito-Variable.ttf", {
-  as: "font",
-  crossOrigin: "",
-}); */
 
 export const metadata: Metadata = {
   title: "Schlicht & Ergreifend",

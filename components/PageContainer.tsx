@@ -11,7 +11,6 @@ type Props = {
   headline: string;
   backgroundImage: StaticImageData;
   altText: string;
-  blurUrl: string;
 };
 
 export function PageContainer({
@@ -19,25 +18,22 @@ export function PageContainer({
   headline,
   backgroundImage,
   altText,
-  blurUrl,
 }: Props) {
   const pathname = usePathname();
   return (
     <Container
       key={pathname}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      initial={{ filter: "brightness(0%)" }}
+      animate={{ filter: "brightness(100%)" }}
+      exit={{ filter: "brightness(0%)" }}
+      transition={{ duration: 0.4 }}
     >
       <Headline
         initial={{ y: "0vh", opacity: 0 }}
         animate={{ y: "-6vh", opacity: 1 }}
         transition={{
-          delay: 0.3,
-
-          y: { duration: 0.5 },
-          opacity: { duration: 0.3 },
+          y: { duration: 0.3, delay: 0.5 },
+          opacity: { duration: 0.3, delay: 0.5 },
         }}
       >
         {headline}
@@ -49,23 +45,15 @@ export function PageContainer({
           initial={{ y: "-12vh", opacity: 0 }}
           animate={{ y: "-6vh", opacity: 1 }}
           transition={{
-            delay: 0.3,
-
-            y: { duration: 0.5 },
-            opacity: { duration: 0.3 },
+            y: { duration: 0.3, delay: 0.5 },
+            opacity: { duration: 0.3, delay: 0.5 },
           }}
         >
           {headline}
         </Headline>
       </WhiteHeadlineContainer>
 
-      <StyledImage
-        priority
-        src={backgroundImage}
-        alt={altText}
-        placeholder="blur"
-        blurDataURL={blurUrl}
-      />
+      <StyledImage priority src={backgroundImage} alt={altText} />
 
       <ScrollWrapper>
         <BorderWrapper>{children}</BorderWrapper>

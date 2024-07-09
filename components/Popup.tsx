@@ -5,14 +5,9 @@ import popup1 from "@/public/images/popup/popup1.png";
 import { PageContainer } from "./PageContainer";
 import { TextWrapper } from "./TextWrapper";
 
-export function Popup({ blurUrl }: { blurUrl: string }) {
+export function Popup() {
   return (
-    <PageContainer
-      headline="popup"
-      backgroundImage={popup1}
-      altText=""
-      blurUrl={blurUrl}
-    >
+    <PageContainer headline="popup" backgroundImage={popup1} altText="">
       <TextWrapper>
         Abende, an denen alles zusammenkommt, was schlicht+ergreifend Dining
         ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
