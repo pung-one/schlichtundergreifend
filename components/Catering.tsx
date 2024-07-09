@@ -10,7 +10,7 @@ export function Catering() {
     <PageContainer
       headline="catering"
       backgroundImage={gardenTable}
-      altText="Esstisch im Garten im Frühling"
+      altText="A black and white photograph of a rustic garden scene. The image features a wooden table and chairs set up on an overgrown grassy area, surrounded by dense foliage and trees. The table is covered with various items, suggesting recent use. The atmosphere is tranquil and nostalgic, with a focus on the natural, untamed beauty of the garden. The overall mood is serene and contemplative."
     >
       <TextWrapper>
         Lass uns gerne über deine Vorstellungen sprechen und wir schauen, wie

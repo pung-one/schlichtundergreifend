@@ -7,7 +7,11 @@ import { TextWrapper } from "./TextWrapper";
 
 export function About() {
   return (
-    <PageContainer headline="zu uns" backgroundImage={about1} altText="">
+    <PageContainer
+      headline="zu uns"
+      backgroundImage={about1}
+      altText="A black and white photograph capturing a dimly lit, intimate table setting. The table is adorned with several glasses, bottles, and a lit candle, creating a cozy ambiance. In the background, a foggy window displays drawings of hearts and abstract shapes, possibly made by someone using their finger. Small dots of light are visible through the window, adding to the warm and inviting atmosphere. The foreground features a cloth with a simple, elegant pattern. The overall scene evokes a sense of romance and quiet celebration."
+    >
       <TextWrapper>
         Hinter schlicht+ergreifend Dining verbirgt sich der Raum und die
         Freiheit, uns mit Handwerk auszudrücken und auszuprobieren, was geht.

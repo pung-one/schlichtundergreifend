@@ -7,7 +7,11 @@ import { TextWrapper } from "./TextWrapper";
 
 export function Popup() {
   return (
-    <PageContainer headline="popup" backgroundImage={popup1} altText="">
+    <PageContainer
+      headline="popup"
+      backgroundImage={popup1}
+      altText="A black and white photograph taken in a dining setting. The focal point is a person sitting at a table, obscured by a wine glass and candle in the foreground. The background features a poster with the text 'SCHLICHT + ERGREIFEND DINING' and other information about a pop-up restaurant event. The poster also displays a plate, utensils, and a crumpled napkin. The image has a casual, candid feel with a blurred depth of field."
+    >
       <TextWrapper>
         Abende, an denen alles zusammenkommt, was schlicht+ergreifend Dining
         ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
