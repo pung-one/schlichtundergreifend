@@ -2,10 +2,15 @@
 
 import styled from "styled-components";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function MainNav() {
   return (
-    <MainNavigation>
+    <MainNavigation
+      initial={{ filter: "brightness(0%)" }}
+      animate={{ filter: "brightness(100%)" }}
+      transition={{ duration: 0.3 }}
+    >
       <StyledLink href={"/catering"}>catering</StyledLink>
 
       <StyledLink href={"/popup"} $isMiddle>
@@ -17,7 +22,7 @@ export function MainNav() {
   );
 }
 
-const MainNavigation = styled.nav`
+const MainNavigation = styled(motion.nav)`
   z-index: 2;
   position: absolute;
   bottom: 0;

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import Image, { StaticImageData } from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
 
 type Props = {
@@ -19,13 +19,13 @@ export function PageContainer({
   backgroundImage,
   altText,
 }: Props) {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
   const pathname = usePathname();
   return (
     <Container
       key={pathname}
       initial={{ filter: "brightness(0%)" }}
       animate={{ filter: "brightness(100%)" }}
-      exit={{ filter: "brightness(0%)" }}
       transition={{ duration: 0.4 }}
     >
       <Headline
@@ -53,11 +53,22 @@ export function PageContainer({
         </Headline>
       </WhiteHeadlineContainer>
 
-      <StyledImage priority src={backgroundImage} alt={altText} />
+      <StyledImage
+        priority
+        src={backgroundImage}
+        alt={altText}
+        onLoadingComplete={() => setImageLoaded(true)}
+      />
 
-      <ScrollWrapper>
-        <BorderWrapper>{children}</BorderWrapper>
-      </ScrollWrapper>
+      {imageLoaded && (
+        <ScrollWrapper
+          initial={{ filter: "brightness(0%)" }}
+          animate={{ filter: "brightness(100%)" }}
+          transition={{ duration: 0.3 }}
+        >
+          <BorderWrapper>{children}</BorderWrapper>
+        </ScrollWrapper>
+      )}
     </Container>
   );
 }
@@ -96,7 +107,7 @@ const StyledImage = styled(Image)`
   filter: brightness(55%);
 `;
 
-const ScrollWrapper = styled.div`
+const ScrollWrapper = styled(motion.div)`
   position: relative;
   z-index: 3;
   background: none;
