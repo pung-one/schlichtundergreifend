@@ -11,7 +11,6 @@ const Wrapper = styled.p`
   position: relative;
   color: white;
   max-width: 600px;
-  margin: 0 auto;
   line-height: 1.5rem;
   a {
     color: white;
@@ -44,5 +43,8 @@ const Wrapper = styled.p`
   @media only screen and (max-width: 900px) {
     padding: 0 15px;
     width: 100%;
+    &:before {
+      display: none;
+    }
   }
 `;

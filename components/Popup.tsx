@@ -55,7 +55,6 @@ export function Popup() {
 const Section = styled.section`
   max-width: 600px;
   width: 100%;
-  margin: 0 auto;
 `;
 
 const Headline2 = styled.h2`
@@ -71,7 +70,7 @@ const Headline2 = styled.h2`
 const Events = styled.div`
   position: relative;
   color: white;
-  margin: 20px 60px;
+  margin-top: 20px;
   ul {
     list-style: none;
     display: flex;
@@ -86,7 +85,7 @@ const Events = styled.div`
 
 const Reservation = styled.p`
   color: white;
-  margin: 20px 60px;
+  margin-top: 20px;
   a {
     color: white;
   }

@@ -93,8 +93,12 @@ const Headline = styled(motion.h1)<{ $white?: boolean }>`
   font-size: 12vh;
   line-height: 12vh;
   color: ${({ $white }) => ($white ? "white" : "black")};
-  width: 100%;
-  text-align: center;
+  width: fit-content;
+  padding: 0 0 0 20%;
+  @media only screen and (max-width: 900px) {
+    padding: 0 30px;
+    width: 100%;
+  }
 `;
 
 const StyledImage = styled(Image)`
@@ -117,11 +121,15 @@ const ScrollWrapper = styled(motion.div)`
 `;
 
 const BorderWrapper = styled.div`
-  padding: 20vh 0 10vh;
   min-height: 100%;
   border: 8px solid white;
   border-top: none;
   display: flex;
   flex-direction: column;
   gap: 100px;
+  padding: 20vh 0 10vh 20%;
+  @media only screen and (max-width: 900px) {
+    padding: 20vh 15px 10vh;
+    width: 100%;
+  }
 `;
