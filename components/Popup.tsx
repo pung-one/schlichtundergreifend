@@ -38,31 +38,6 @@ export function Popup({ blurUrl }: { blurUrl: string }) {
               <br />
               Popup-Restaurant im Nil N°6
             </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
           </ul>
         </Events>
       </Section>

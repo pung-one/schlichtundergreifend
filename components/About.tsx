@@ -30,10 +30,8 @@ export function About({ blurUrl }: { blurUrl: string }) {
         können und lieben.
         <br />
         <br />
-        Aber um den Ball flach zu halten:
-        <br />
-        Am Ende des Tages geht es nur ums kochen und dazu einzuladen, gemeinsam
-        zu genießen.
+        Aber um den Ball flach zu halten: Am Ende des Tages geht es nur ums
+        kochen und dazu einzuladen, gemeinsam zu genießen.
       </TextWrapper>
 
       <Section>

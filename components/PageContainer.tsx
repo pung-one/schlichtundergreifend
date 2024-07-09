@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 type Props = {
   children: ReactNode;
@@ -20,8 +21,15 @@ export function PageContainer({
   altText,
   blurUrl,
 }: Props) {
+  const pathname = usePathname();
   return (
-    <Container>
+    <Container
+      key={pathname}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <Headline
         initial={{ y: "0vh", opacity: 0 }}
         animate={{ y: "-6vh", opacity: 1 }}
@@ -66,7 +74,7 @@ export function PageContainer({
   );
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   position: relative;
   width: 100%;
   height: 80dvh;

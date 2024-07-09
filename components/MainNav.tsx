@@ -1,20 +1,10 @@
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import Link from "next/link";
 
 export function MainNav() {
   return (
-    <MainNavigation
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
-    >
-      <StyledLink
-        href={"/catering"}
-        transition={{ duration: 0.8, repeat: Infinity }}
-      >
-        catering
-      </StyledLink>
+    <MainNavigation>
+      <StyledLink href={"/catering"}>catering</StyledLink>
 
       <StyledLink href={"/popup"} $isMiddle>
         popup
@@ -25,7 +15,7 @@ export function MainNav() {
   );
 }
 
-const MainNavigation = styled(motion.nav)`
+const MainNavigation = styled.nav`
   z-index: 2;
   position: absolute;
   bottom: 0;
@@ -36,7 +26,7 @@ const MainNavigation = styled(motion.nav)`
   }
 `;
 
-const StyledLink = styled(motion(Link))<{ $isMiddle?: boolean }>`
+const StyledLink = styled(Link)<{ $isMiddle?: boolean }>`
   flex: 1;
   font-family: "Melodrama";
   font-size: 6vh;

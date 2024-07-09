@@ -19,9 +19,7 @@ export function Catering({ blurUrl }: { blurUrl: string }) {
         <br />
         <br />
         Get-Together von Firmenevent bis zur privaten Geburtstagsfeier bei dir
-        zu Hause:
-        <br />
-        wir machen uns gerne Gedanken über alle möglichen Settings.
+        zu Hause: Wir machen uns gerne Gedanken über alle möglichen Settings.
         <br />
         <br />
         Manchmal ist einfach nur zusammenkommen ja auch schon Anlass genug!

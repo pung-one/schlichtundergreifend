@@ -8,19 +8,29 @@ ReactDOM.preload("/fonts/Melodrama-Variable.woff2", {
   as: "font",
   crossOrigin: "",
 });
-ReactDOM.preload("/fonts/Melodrama-Variable.woff", {
+/* ReactDOM.preload("/fonts/Melodrama-Variable.woff", {
   as: "font",
   crossOrigin: "",
 });
 ReactDOM.preload("/fonts/Melodrama-Variable.ttf", {
   as: "font",
   crossOrigin: "",
-});
+}); */
 
-ReactDOM.preload("/fonts/AveriaSans-Regular.ttf", {
+/* ReactDOM.preload("/fonts/Nunito-Variable.woff", {
+  as: "font",
+  crossOrigin: "",
+}); */
+
+ReactDOM.preload("/fonts/Nunito-Variable.woff2", {
   as: "font",
   crossOrigin: "",
 });
+
+/* ReactDOM.preload("/fonts/Nunito-Variable.ttf", {
+  as: "font",
+  crossOrigin: "",
+}); */
 
 export const metadata: Metadata = {
   title: "Schlicht & Ergreifend",
@@ -41,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body>
         <StyledComponentsRegistry>
           <GlobalStyles />

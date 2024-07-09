@@ -14,12 +14,6 @@ import { Header } from "./Header";
 export function Layout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-  /* useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.history.scrollRestoration = "manual";
-    }
-  }, []); */
-
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "initial";
   }, [menuOpen]);
