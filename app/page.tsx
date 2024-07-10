@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "schlicht und ergreifend dining",
     "schlicht plus ergreifend",
     "schlicht plus ergreifend dining",
+    "schlicht + ergreifend",
+    "schlicht + ergreifend dining",
     "schlicht",
     "ergreifend",
     "dining",
