@@ -31,7 +31,7 @@ export function Menu({
 
         <NavElement
           onClick={() => setMenuOpen(false)}
-          href={"https://www.instagram.com/schlicht_ergreifend_dining/"}
+          href="https://www.instagram.com/schlichtplusergreifend/"
           target="_blank"
         >
           instagram

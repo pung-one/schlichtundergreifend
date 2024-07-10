@@ -31,14 +31,20 @@ export function About() {
         <Headline2>kontakt</Headline2>
 
         <Contact>
-          Ansprechpartner:innen: Jules Massay, Rosa Krieg
+          Ansprechpartner:innen: Jules Massey, Rosa Krieg
+          <br />
+          <br />
+          Instagram:{" "}
+          <a
+            href="https://www.instagram.com/schlichtplusergreifend/"
+            target="_blank"
+          >
+            @schlichtplusergreifend
+          </a>
           <br />
           <br />
           Email:{" "}
           <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
-          <br />
-          <br />
-          Telefon: <a href="tel:01761234567">01761234567</a>
         </Contact>
       </Section>
     </PageContainer>
