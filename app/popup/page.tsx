@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "popup | schlicht+ergreifend",
-  metadataBase: new URL("https://www.schlichtplusergreifend.de/popup"),
+  metadataBase: new URL("https://www.schlichtplusergreifend.de/popup/"),
   alternates: {
     canonical: "/",
   },

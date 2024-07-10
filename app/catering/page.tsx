@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "catering | schlicht+ergreifend",
-  metadataBase: new URL("https://www.schlichtplusergreifend.de/catering"),
+  metadataBase: new URL("https://www.schlichtplusergreifend.de/catering/"),
   alternates: {
     canonical: "/",
   },
