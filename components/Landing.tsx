@@ -59,7 +59,7 @@ export function Landing() {
           priority
           src={heroImage}
           alt="A black and white photograph of a dining table after a meal. The table is cluttered with bowls, pots, utensils, bottles, and partially eaten food. Various dishes and drinks are scattered across the table, indicating a recently concluded meal. Several people are partially visible, engaged in conversation or finishing their drinks. The atmosphere is informal and lively, with a focus on the remnants of the meal and the social interaction around the table."
-          onLoadingComplete={() => setImageLoaded(true)}
+          onLoad={() => setImageLoaded(true)}
         />
 
         {imageLoaded && <MainNav />}

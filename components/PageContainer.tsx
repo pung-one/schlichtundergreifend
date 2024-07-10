@@ -57,7 +57,7 @@ export function PageContainer({
         priority
         src={backgroundImage}
         alt={altText}
-        onLoadingComplete={() => setImageLoaded(true)}
+        onLoad={() => setImageLoaded(true)}
       />
 
       {imageLoaded && (
