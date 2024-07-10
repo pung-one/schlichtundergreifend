@@ -13,18 +13,13 @@ export function Popup() {
       altText="A black and white photograph taken in a dining setting. The focal point is a person sitting at a table, obscured by a wine glass and candle in the foreground. The background features a poster with the text 'SCHLICHT + ERGREIFEND DINING' and other information about a pop-up restaurant event. The poster also displays a plate, utensils, and a crumpled napkin. The image has a casual, candid feel with a blurred depth of field."
     >
       <TextWrapper>
-        Abende, an denen alles zusammenkommt, was Schlicht + Ergreifend Dining
-        ausmacht. Unsere Popup-Restaurants sind unsere Einladung an dich, das
-        alles mitzuerleben und zu bereichern!
-        <br />
-        <br />
-        Sobald die Termine stehen, nehmen wir Reservierungen an. Weil die Plätze
-        begrenzt sind, ist spontan vorbeikommen leider nicht möglich.
-        <br />
-        <br />
-        Ort + Spielzeit variieren - wir halten dich hier und über Social Media
-        auf dem Laufenden. Übrigens auch, was Einblicke ins jeweilige Menü
-        angeht!
+        Abende, an denen alles zusammenkommt, was schlicht + ergreifend Dining
+        ausmacht. Unsere Popup-Restaurants sind eine Einladung an dich, das
+        alles mitzuerleben und zu bereichern. Sobald die Termine stehen, nehmen
+        wir Reservierungen an. Weil die Plätze begrenzt sind, ist spontan
+        vorbeikommen leider nicht möglich. Ort + Spielzeit variieren - wir
+        halten dich hier und über Social Media auf dem Laufenden. Übrigens auch,
+        was Einblicke ins jeweilige Menü angeht!
       </TextWrapper>
 
       <Section>

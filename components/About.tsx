@@ -15,22 +15,16 @@ export function About() {
       <TextWrapper>
         Hinter schlicht+ergreifend Dining verbirgt sich der Raum und die
         Freiheit, uns mit Handwerk auszudrücken und auszuprobieren, was geht.
-        Wohin es uns führen kann.
-        <br />
-        <br />
-        Sich dann gemeinsam zu freuen, wenn es klappt und wenn nicht, keinen
-        Weltuntergang draus zu machen. Die Materie ist grundlegend das Eine -
-        das Andere ist das Bewusstsein dafür, dass unsere Art und Weise zu
-        kochen und zu essen ein Luxus ist und mehr als reine Nahrungsaufnahme.
-        Keine Selbstverständlichkeit, sondern ein Privileg.
+        Wohin es uns führen kann. Sich dann gemeinsam zu freuen, wenn es klappt
+        und wenn nicht, keinen Weltuntergang draus zu machen. Die Materie ist
+        grundlegend das Eine - das Andere ist das Bewusstsein dafür, dass unsere
+        Art und Weise zu kochen und zu essen ein Luxus ist und mehr als reine
+        Nahrungsaufnahme. Keine Selbstverständlichkeit, sondern ein Privileg.
         <br />
         <br />
         Mit unseren Caterings und Popup-Restaurants teilen wir, was wir gut
-        können und lieben.
-        <br />
-        <br />
-        Aber um den Ball flach zu halten: Am Ende des Tages geht es nur ums
-        kochen und dazu einzuladen, gemeinsam zu genießen.
+        können und lieben. Aber um den Ball flach zu halten: Am Ende des Tages
+        geht es nur ums kochen und dazu einzuladen, gemeinsam zu genießen.
       </TextWrapper>
 
       <Section>

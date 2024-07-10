@@ -13,15 +13,8 @@ export function Catering() {
       altText="A black and white photograph of a rustic garden scene. The image features a wooden table and chairs set up on an overgrown grassy area, surrounded by dense foliage and trees. The table is covered with various items, suggesting recent use. The atmosphere is tranquil and nostalgic, with a focus on the natural, untamed beauty of the garden. The overall mood is serene and contemplative."
     >
       <TextWrapper>
-        Lass uns gerne über deine Vorstellungen sprechen und wir schauen, wie
-        die Umsetzung aussehen könnte.
-        <br />
-        <br />
-        Get-Together von Firmenevent bis zur privaten Geburtstagsfeier bei dir
-        zu Hause: Wir machen uns gerne Gedanken über alle möglichen Settings.
-        <br />
-        <br />
-        Manchmal ist einfach nur zusammenkommen ja auch schon Anlass genug!
+        Lass uns gerne über deine Vorstellungen von einem Get-Together sprechen
+        und wir schauen, wie die Umsetzung aussehen könnte.
       </TextWrapper>
 
       <Section>
