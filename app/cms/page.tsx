@@ -10,12 +10,9 @@ export type Event = {
 };
 
 export default async function CmsPage() {
-  console.log("test");
   const session = await getServerSession(authOptions);
 
   let upcomingEvents: any;
-
-  console.log(session);
 
   if (session) {
     try {

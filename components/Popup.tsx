@@ -27,7 +27,7 @@ export function Popup({ events }: Props) {
         was Einblicke ins jeweilige Menü angeht!
       </TextWrapper>
 
-      {events.length > 0 && (
+      {events?.length > 0 && (
         <Section>
           <Headline2>demnächst</Headline2>
 

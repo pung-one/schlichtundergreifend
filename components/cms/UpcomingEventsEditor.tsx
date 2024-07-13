@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Event } from "@/app/cms/page";
 import about1 from "@/public/images/about/about1.png";
 import { PageContainer } from "../PageContainer";
+import { signOut } from "next-auth/react";
 
 type Props = {
   events: Event[];
@@ -62,6 +63,8 @@ export function UpcomingEventsEditor({ events }: Props) {
       altText="A black and white photograph capturing a dimly lit, intimate table setting. The table is adorned with several glasses, bottles, and a lit candle, creating a cozy ambiance. In the background, a foggy window displays drawings of hearts and abstract shapes, possibly made by someone using their finger. Small dots of light are visible through the window, adding to the warm and inviting atmosphere. The foreground features a cloth with a simple, elegant pattern. The overall scene evokes a sense of romance and quiet celebration."
     >
       <SectionContainer>
+        <LogoutButton onClick={() => signOut()}>Logout</LogoutButton>
+
         <InputContainer>
           <h4>Neues Event</h4>
           <p>Datum/Zeit:</p>
@@ -90,7 +93,7 @@ export function UpcomingEventsEditor({ events }: Props) {
         {events?.length > 0 ? (
           <b>Diese Events werden auf der popup-seite angezeigt:</b>
         ) : (
-          <b>Es werden keine Events auf der popup-Seite angezeigt.</b>
+          <b>Momentan werden keine Events auf der Popup-Seite angezeigt.</b>
         )}
 
         {events?.length > 0 &&
@@ -122,6 +125,18 @@ const SectionContainer = styled.section`
   border: thin solid black;
   background: white;
   z-index: 2;
+`;
+
+const LogoutButton = styled.button`
+  border-radius: 3px;
+  background: none;
+  border: thin solid black;
+  padding: 10px;
+  transition: box-shadow 0.2s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px grey;
+  }
 `;
 
 const LocationElement = styled.div`
