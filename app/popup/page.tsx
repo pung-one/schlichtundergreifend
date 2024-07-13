@@ -40,18 +40,20 @@ export const metadata: Metadata = {
 };
 
 export default async function PopupPage() {
-  let upcomingEvents;
+  let upcomingEvents: any;
   try {
     const client = await clientPromise;
     const database = client.db("schlichtergreifend");
     const upcomingEventsCollection = database.collection("upcomingEvents");
-    upcomingEvents = await upcomingEventsCollection.findOne(
-      {},
-      { projection: { _id: 0 } }
-    );
+    upcomingEvents = await (
+      await upcomingEventsCollection.find().toArray()
+    ).map((event) => ({
+      ...event,
+      _id: event._id.toString(),
+    }));
   } catch (e) {
     console.error(e);
   }
 
-  return <Popup events={upcomingEvents?.events} />;
+  return <Popup events={upcomingEvents} />;
 }

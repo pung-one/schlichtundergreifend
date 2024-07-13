@@ -10,19 +10,18 @@ import { PageContainer } from "../PageContainer";
 import { signOut } from "next-auth/react";
 
 type Props = {
-  events: Event[];
+  events?: Event[];
 };
 
 export function UpcomingEventsEditor({ events }: Props) {
   const [newEvent, setNewEvent] = useState<Event>({ date: "", text: "" });
   const router = useRouter();
 
-  async function handleDelete(event: Event) {
+  async function handleDelete(id: string) {
     if (confirm(`Willst du dieses event wirklich löschen?`) == true) {
-      const body = events.filter((elem) => elem !== event);
       const response = await fetch("/api/upcoming/", {
-        method: "PUT",
-        body: JSON.stringify(body),
+        method: "DELETE",
+        body: JSON.stringify(id),
         headers: {
           "Content-Type": "application/json",
         },
@@ -38,10 +37,9 @@ export function UpcomingEventsEditor({ events }: Props) {
 
   async function handleAdd() {
     if (confirm(`Willst du dieses event wirklich hinzufügen?`) == true) {
-      const body = events ? [...events, newEvent] : [newEvent];
       const response = await fetch("/api/upcoming/", {
         method: "PUT",
-        body: JSON.stringify(body),
+        body: JSON.stringify(newEvent),
         headers: {
           "Content-Type": "application/json",
         },
@@ -90,13 +88,14 @@ export function UpcomingEventsEditor({ events }: Props) {
           </Button>
         </InputContainer>
 
-        {events?.length > 0 ? (
+        {events && events?.length > 0 ? (
           <b>Diese Events werden auf der popup-seite angezeigt:</b>
         ) : (
           <b>Momentan werden keine Events auf der Popup-Seite angezeigt.</b>
         )}
 
-        {events?.length > 0 &&
+        {events &&
+          events?.length > 0 &&
           events.map((event: Event) => {
             return (
               <LocationElement key={event.text}>
@@ -105,7 +104,7 @@ export function UpcomingEventsEditor({ events }: Props) {
                   <br />
                   {event.text}
                 </p>
-                <Button onClick={() => handleDelete(event)}>
+                <Button onClick={() => handleDelete(event._id!)}>
                   <PiTrashThin />
                 </Button>
               </LocationElement>

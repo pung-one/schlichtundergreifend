@@ -7,6 +7,7 @@ import { Login } from "@/components/cms/Login";
 export type Event = {
   date: string;
   text: string;
+  _id?: string;
 };
 
 export default async function CmsPage() {
@@ -19,15 +20,16 @@ export default async function CmsPage() {
       const client = await clientPromise;
       const database = client.db("schlichtergreifend");
       const upcomingEventsCollection = database.collection("upcomingEvents");
-      upcomingEvents = await upcomingEventsCollection.findOne(
-        {},
-        { projection: { _id: 0 } }
-      );
+      upcomingEvents = await (
+        await upcomingEventsCollection.find().toArray()
+      ).map((event) => ({
+        ...event,
+        _id: event._id.toString(),
+      }));
     } catch (e) {
       console.error(e);
     }
-
-    return <UpcomingEventsEditor events={upcomingEvents.events} />;
+    return <UpcomingEventsEditor events={upcomingEvents} />;
   } else {
     return <Login />;
   }

@@ -7,7 +7,7 @@ import { TextWrapper } from "./TextWrapper";
 import { Event } from "@/app/cms/page";
 
 type Props = {
-  events: Event[];
+  events?: Event[];
 };
 
 export function Popup({ events }: Props) {
@@ -27,7 +27,7 @@ export function Popup({ events }: Props) {
         was Einblicke ins jeweilige Menü angeht!
       </TextWrapper>
 
-      {events?.length > 0 && (
+      {events && events?.length > 0 && (
         <Section>
           <Headline2>demnächst</Headline2>
 
