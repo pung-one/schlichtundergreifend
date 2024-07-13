@@ -4,8 +4,13 @@ import styled from "styled-components";
 import popup1 from "@/public/images/popup/popup1.png";
 import { PageContainer } from "./PageContainer";
 import { TextWrapper } from "./TextWrapper";
+import { Event } from "@/app/cms/page";
 
-export function Popup() {
+type Props = {
+  events?: Event[];
+};
+
+export function Popup({ events }: Props) {
   return (
     <PageContainer
       headline="popup"
@@ -22,19 +27,23 @@ export function Popup() {
         was Einblicke ins jeweilige Menü angeht!
       </TextWrapper>
 
-      <Section>
-        <Headline2>demnächst</Headline2>
+      {events && events?.length > 0 && (
+        <Section>
+          <Headline2>demnächst</Headline2>
 
-        <Events>
-          <ul>
-            <li>
-              <span>13. - 15.7.</span>
-              <br />
-              Popup-Restaurant im Nil N°6
-            </li>
-          </ul>
-        </Events>
-      </Section>
+          <Events>
+            <ul>
+              {events.map((event: Event) => (
+                <li key={event.date}>
+                  <span>{event.date}</span>
+                  <br />
+                  {event.text}
+                </li>
+              ))}
+            </ul>
+          </Events>
+        </Section>
+      )}
 
       {/* <Section>
         <Headline2>reservierungen</Headline2>

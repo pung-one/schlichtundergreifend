@@ -30,7 +30,7 @@ export function PageContainer({
     >
       <Headline
         initial={{ y: "0vh", opacity: 0 }}
-        animate={{ y: "-6vh", opacity: 1 }}
+        animate={{ y: "-6.5vh", opacity: 1 }}
         transition={{
           y: { duration: 0.3, delay: 0.5 },
           opacity: { duration: 0.3, delay: 0.5 },
@@ -43,7 +43,7 @@ export function PageContainer({
         <Headline
           $white
           initial={{ y: "-12vh", opacity: 0 }}
-          animate={{ y: "-6vh", opacity: 1 }}
+          animate={{ y: "-6.5vh", opacity: 1 }}
           transition={{
             y: { duration: 0.3, delay: 0.5 },
             opacity: { duration: 0.3, delay: 0.5 },
