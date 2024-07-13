@@ -7,7 +7,7 @@ export const authOptions = {
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
+        password: { label: "Passwort", type: "password" },
       },
       async authorize(credentials, req) {
         const client = await clientPromise;

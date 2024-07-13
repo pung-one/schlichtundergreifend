@@ -118,7 +118,7 @@ export function UpcomingEventsEditor({ events }: Props) {
 const SectionContainer = styled.section`
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 300px;
   gap: 30px;
   padding: 20px;
   border: thin solid black;
