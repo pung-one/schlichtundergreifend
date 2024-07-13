@@ -45,13 +45,13 @@ export function Popup({ events }: Props) {
         </Section>
       )}
 
-      <Section>
+      {/* <Section>
         <Headline2>reservierungen</Headline2>
 
         <Reservation>
           <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
         </Reservation>
-      </Section>
+      </Section> */}
     </PageContainer>
   );
 }
