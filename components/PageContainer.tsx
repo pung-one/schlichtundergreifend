@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 type Props = {
   children: ReactNode;
   headline: string;
-  backgroundImage?: StaticImageData;
-  altText?: string;
+  backgroundImage: StaticImageData;
+  altText: string;
 };
 
 export function PageContainer({
@@ -53,14 +53,12 @@ export function PageContainer({
         </Headline>
       </WhiteHeadlineContainer>
 
-      {backgroundImage && altText && (
-        <StyledImage
-          priority
-          src={backgroundImage}
-          alt={altText}
-          onLoad={() => setImageLoaded(true)}
-        />
-      )}
+      <StyledImage
+        priority
+        src={backgroundImage}
+        alt={altText}
+        onLoad={() => setImageLoaded(true)}
+      />
 
       {imageLoaded && (
         <ScrollWrapper
