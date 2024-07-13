@@ -1,4 +1,5 @@
 import { Popup } from "@/components/Popup";
+import clientPromise from "@/db/mongodb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -39,5 +40,18 @@ export const metadata: Metadata = {
 };
 
 export default async function PopupPage() {
-  return <Popup />;
+  let upcomingEvents;
+  try {
+    const client = await clientPromise;
+    const database = client.db("schlichtergreifend");
+    const upcomingEventsCollection = database.collection("upcomingEvents");
+    upcomingEvents = await upcomingEventsCollection.findOne(
+      {},
+      { projection: { _id: 0 } }
+    );
+  } catch (e) {
+    console.error(e);
+  }
+
+  return <Popup events={upcomingEvents?.events} />;
 }
