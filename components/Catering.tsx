@@ -17,13 +17,15 @@ export function Catering() {
         und wir schauen, wie die Umsetzung aussehen könnte.
       </TextWrapper>
 
-      {/* <Section>
+      <Section>
         <Headline2>anfragen</Headline2>
 
         <Reservation>
-          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a>
+          <a href="mailto:mail@schlichtplusergreifend.de">
+            mail@schlichtplusergreifend.de
+          </a>
         </Reservation>
-      </Section> */}
+      </Section>
     </PageContainer>
   );
 }

@@ -41,10 +41,12 @@ export function About() {
           >
             @schlichtplusergreifend
           </a>
-          {/* <br />
+          <br />
           <br />
           Email:{" "}
-          <a href="mailto:schlicht@ergreifend.de">schlicht@ergreifend.de</a> */}
+          <a href="mailto:mail@schlichtplusergreifend.de">
+            mail@schlichtplusergreifend.de
+          </a>
         </Contact>
       </Section>
     </PageContainer>
